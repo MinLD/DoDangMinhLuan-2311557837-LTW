@@ -5,7 +5,7 @@ import { BsCart4} from "react-icons/bs"
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
-import { Link } from "react-router-dom";
+
 
 const Header= () => {
     const [menus, setMenus] = useState([
