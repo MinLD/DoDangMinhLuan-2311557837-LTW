@@ -1,0 +1,131 @@
+@use "sass:map";
+@import "style/pages/theme";
+.Header_top{
+    background: #763405
+}
+.Header_top_left{
+    ul{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        column-gap: 20px;
+        align-items: center;
+        padding: 10px 0 13px;
+        li{
+            font-size: 14px;
+            color: map.get($theme-colors, "normal-text" );
+            display: flex;
+            align-content: center;
+            column-gap: 2px;
+        }
+        li:first-child{
+            position: relative;
+           
+            &::after{
+            position: absolute;
+            right: -10px;
+            top:1px;
+            height: 20px;
+            width: 1px;
+            background: rgb(0, 0, 0);
+            opacity: 0,1;
+            content: "";
+            }
+        }
+    }
+  
+
+}
+
+.Header_top_right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0 13px;
+    ul{
+        display: flex;
+        column-gap: 4px; //khoang cach item cach ra 10px
+        list-style: none;
+        a{
+            font-size: 14px;
+            display: inline-block;
+            color: map.get($theme-colors, "normal-text");
+            text-decoration: none;
+        }
+   
+            li:last-child{
+                cursor: pointer;
+                margin-left: 10px;
+                
+            }
+            span{
+                font-size: 16px;
+                margin-left: 2px;
+                display: inline-block;
+               vertical-align: middle;
+                margin-top: -6px;
+            }
+        
+      
+        
+}
+
+}
+
+.header_logo{
+    padding: 15px 0;
+}
+.header_menu{
+    padding: 24px 0;
+    ul{
+        display: flex;
+        justify-content: space-between;
+    
+    Li{
+        list-style: none;
+        margin: 0px 10px;
+        position: relative;
+        a{
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transform: all 0.3s;
+            padding: 5px 0;
+            display: block;
+        }
+    }
+    li:hover .header_menu_dropdown{
+        opacity: 1;
+        visibility: visible;
+    }
+        .active a{
+            color: #ff5e00;
+          
+        }
+        .header_menu_dropdown{
+            background: #222222;
+            display: block;
+            position: absolute;
+            width: 180px;
+            z-index: 9;
+            padding: 5px 0;
+            transition: all, 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            li{
+                a{
+                    text-transform: capitalize;
+                    color: #ffffff;
+                    font-weight: 400;
+                    padding: 5px 15px;
+                }
+                :hover{
+                    background-color:  map.get($theme-colors , "bold-text" );
+                }
+            }
+            }
+    }
+
+}
