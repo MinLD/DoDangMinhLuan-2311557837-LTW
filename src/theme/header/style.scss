@@ -1,9 +1,14 @@
 @use "sass:map";
 @import "style/pages/theme";
+
 .Header_top{
-    background: #763405
+    background: map.get($theme-colors , "main" );
 }
+
+
 .Header_top_left{
+
+ 
     ul{
         display: flex;
         align-items: center;
@@ -38,6 +43,8 @@
 }
 
 .Header_top_right{
+    
+  
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -62,7 +69,7 @@
                 font-size: 16px;
                 margin-left: 2px;
                 display: inline-block;
-               vertical-align: middle;
+                vertical-align: middle;
                 margin-top: -6px;
             }
         
@@ -101,29 +108,31 @@
         visibility: visible;
     }
         .active a{
-            color: #ff5e00;
+            color: map.get($theme-colors , "main" );
+            
           
         }
         .header_menu_dropdown{
-            background: #222222;
+            background: #ffffff;
             display: block;
             position: absolute;
-            width: 180px;
+            width: 220px;
             z-index: 9;
             padding: 5px 0;
             transition: all, 0.3s;
             opacity: 100;
             visibility: hidden;
+            border-radius: 0% 10% ;
             li{
                 
                 a{
                     text-transform: capitalize;
-                    color: #ffffff;
+                    color: #000000;
                     font-weight: 400;
                     padding: 5px 15px;
                 }
                 :hover {
-                    background-color:  map.get($theme-colors , "bold-text" );
+                    color: map.get($theme-colors , "main" );
                 }
             }
             }

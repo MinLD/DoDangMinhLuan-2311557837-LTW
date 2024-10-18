@@ -8,7 +8,7 @@ import { ROUTERS } from "utils/router";
 
 
 const Header= () => {
-    const [menus, setMenus] = useState([
+    const [menus] = useState([
         {
             name: "Trang chủ",
             path: ROUTERS.USER.HOME},
@@ -26,27 +26,47 @@ const Header= () => {
             isShowSubmenu: false,
             child : [
              {
-                name: "Toeic1",
-            path: ""},
-             
-             {
-                name: "Toeic2",
-            path: ""
-             }
+                name: "Toeic",
+            path: ""}
+          
 
             ]
             },
             {
-            name: "Thi thử",
-            path: ""
+                name: "Thi thử",
+                path: ROUTERS.USER.dangkykh,
+                isShowSubmenu: false,
+                child : [
+                 {
+                    name: "Toeic",
+                path: ""}
+                ]
             },
             {
-            name: "Ôn luyện",
-            path: ""
+                name: "Ôn Luyện",
+                path: ROUTERS.USER.dangkykh,
+                isShowSubmenu: false,
+                child : [
+                 {
+                    name: "Toeic",
+                path: ""}
+                ]
             },
             {
-            name: "Liên hệ",
-            path: ""
+                name: "Liên hệ",
+                path: ROUTERS.USER.dangkykh,
+                isShowSubmenu: false,
+                child : [
+                 {
+                    name: "Thông tin liên hệ",
+                path: ""},
+                 
+                 {
+                    name: "Hỏi đáp",
+                path: ""
+                 }
+    
+                ]
             }
            
         
@@ -55,8 +75,8 @@ const Header= () => {
     
     return (
         <>
- <div className="Header_top">
-        <div className="container">
+ <div className="Header_top ">
+        <div className="container " >
             <div className="row">
                 <div className="col-6 Header_top_left">
                     <ul>
@@ -70,7 +90,7 @@ const Header= () => {
                 </div>
                 <div className="col-6 Header_top_right">
                      <ul>
-                         <li>
+                         {/* <li>
                                 <a href=" ">
                                 <AiOutlineFacebook/> 
                                 </a>
@@ -89,7 +109,7 @@ const Header= () => {
                                 <a href=" ">
                                 <AiOutlineFacebook/> 
                                 </a>
-                         </li>
+                         </li> */}
                          <li> 
                             <a href=" ">
                              <AiOutlineUser size={16} />
@@ -108,11 +128,11 @@ const Header= () => {
             </div>
          </div>
     </div>
-   <div className="container">
+   <div className="container ">
    <div className="row"> 
         <div  className="col-xl-3 "  >
              <div className="header_logo">
-                <h1>SWB E-Learning</h1>
+                <h3>SWB E-Learning</h3>
              </div>
         </div>
         <div  className="col-xl-9 "  >
@@ -144,6 +164,12 @@ const Header= () => {
        
     </div>
    </div>
+   <div className="container_banner">
+     <div className="banner ">
+        <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Default/Media/Images/2223af49-a76a-48a3-adb7-6a1782ea1974/default_image_2223af49-a76a-48a3-adb7-6a1782ea1974_1921-x-641-3-(3)-(6)_1727235877319.jpg"></img>
+     </div>
+     </div>
+    
         </>
    
     )
