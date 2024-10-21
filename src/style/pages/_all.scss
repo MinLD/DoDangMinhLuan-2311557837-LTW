@@ -7,28 +7,26 @@ body{
     
 }
 *{
-    font-family: Roboto;
+    font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
 }
-.container_banner{
-    max-width: 1512.8 x 47px;
+
+  
+
+
+.container_sub{
+    max-width: 1412.8px;
     width: 100%;
-    // background: map.get($theme-colors, "main");
-    .banner{
-        img{
-            max-width: 100%;
-            height: auto;
-        }
-    }
+    height: auto;
 }
 .container{
-    max-width: 1170px;
+    max-width: 1512.8px;
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    // padding-left: 15px;
+    // padding-right: 15px;
     // background: map.get($theme-colors, "main");
-    margin: auto;
+    // margin: auto;
 }
 .row{
     display: flex;
@@ -47,6 +45,10 @@ body{
 .col-lg-6{
     flex: 0 0 50%;
     max-width: 50%;
+   
+}
+.col-lg-9{
+  
    
 }
 @include Reponsive($SMALL_DEVICE){

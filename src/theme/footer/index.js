@@ -10,20 +10,21 @@ import { BsInstagram } from "react-icons/bs";
 
 const Footer= () => {
     return (
- 
-    <div className="footer">
         <div className="container">
+       
+    <div className="footer">
+    <div className="container_sub">
         <div className="row">
         <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12"> 
         <div className="footer_about">
             <h1 className="footer_about_logo">SWB E-Learning</h1>
             <ul>
                 <li className="footer_about_item"><MdOutlinePhoneInTalk size={25}/><span><b>888123213</b></span></li>
-                <li className="footer_about_item"><CgMail size={25}/><span><b>swbelearning@gmail.com</b></span></li>
+                <li className="footer_about_item"><CgMail size={25}/><span><b>swbe@gmail.com</b></span></li>
                 <li className="footer_about_item">
-                    <a href="#"> <FaFacebook size={35}/></a>
-                    <a href="#"> <SiZalo size={35}/></a>
-                    <a href="#"><BsInstagram size={35}/></a>
+                    <a href="#"> <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"/></a>
+                    <a href="#"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png"/></a>
+                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"/></a>
                 </li>
             </ul>
         </div>
@@ -68,6 +69,7 @@ const Footer= () => {
                 </ul>
             </div>
         </div>
+
         <div className="col-lg-3 col-md-12 .col-sm-12 col-xs-12" >
         <div className="footer_mid">
                 <h6>
@@ -90,12 +92,14 @@ const Footer= () => {
             </div>
         </div>    
          </div>
-      
-         </div>
          <div className="coppyright">
             <hr/>
         <p>Copyright by SWB Vietnam 2024. All rights reserved.</p>
          </div>
+
+     
+         </div>
+              </div>
         </div>
 
     

@@ -5,6 +5,7 @@ import { BsCart4} from "react-icons/bs"
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
+import { Link } from "react-router-dom";
 
 
 const Header= () => {
@@ -17,11 +18,11 @@ const Header= () => {
             path: ROUTERS.USER.info
         },
             {
-            name: "Tin Tức",
+            name: "Tin tức",
             path: ROUTERS.USER.tintuc},
 
             {
-            name: "Đăng ký",
+            name: "Đăng ký thi",
             path: ROUTERS.USER.dangkykh,
             isShowSubmenu: false,
             child : [
@@ -33,7 +34,7 @@ const Header= () => {
             ]
             },
             {
-                name: "Thi thử",
+                name: "Thi thử Onine",
                 path: ROUTERS.USER.dangkykh,
                 isShowSubmenu: false,
                 child : [
@@ -43,7 +44,7 @@ const Header= () => {
                 ]
             },
             {
-                name: "Ôn Luyện",
+                name: "Ôn luyện",
                 path: ROUTERS.USER.dangkykh,
                 isShowSubmenu: false,
                 child : [
@@ -71,17 +72,27 @@ const Header= () => {
            
         
     ])
+    const [logins] = useState([
+        {
+            name: "Đăng nhập",
+            path: ROUTERS.USER.login},
 
+        {   name: "Đăng ký",
+            path: ROUTERS.USER.register
+        }
+    ])
     
     return (
         <>
- <div className="Header_top ">
-        <div className="container " >
+         <div className="container set_zindex" >
+      
+ <div className="Header_top">
             <div className="row">
                 <div className="col-6 Header_top_left">
                     <ul>
                         <li>
-                        <CgMail size={20}/>swbelearning@gmail.com
+                            
+                        <CgMail size={20}/>swb@gmail.com
                         </li>
                         <li>
                         <MdOutlinePhoneInTalk size={20}/>  08888123213
@@ -116,23 +127,23 @@ const Header= () => {
                              <span>Đăng Nhập</span>
                             </a> 
                          </li>
-                         <li>
+                         {/* <li>
                             <a href="" >
                             <BsCart4 size={20}/>
                             </a>
                         
                             
-                        </li>
+                        </li> */}
                      </ul> 
                 </div>
             </div>
          </div>
     </div>
-   <div className="container ">
+   <div className="container_banner head_bt_bg set_zindex2">
    <div className="row"> 
-        <div  className="col-xl-3 "  >
+        <div  className="col-xl-3"  >
              <div className="header_logo">
-                <h3>SWB E-Learning</h3>
+                <img src="https://www.saokim.com.vn/blog/wp-content/uploads/2022/04/logo-moi-cua-starbucks.jpg.webp"/>
              </div>
         </div>
         <div  className="col-xl-9 "  >
@@ -164,8 +175,8 @@ const Header= () => {
        
     </div>
    </div>
-   <div className="container_banner">
-     <div className="banner ">
+   <div className="container">
+     <div className="banner">
         <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Default/Media/Images/2223af49-a76a-48a3-adb7-6a1782ea1974/default_image_2223af49-a76a-48a3-adb7-6a1782ea1974_1921-x-641-3-(3)-(6)_1727235877319.jpg"></img>
      </div>
      </div>

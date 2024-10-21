@@ -25,7 +25,7 @@ const renderUserRouter = () =>{
             </Masterlayout>
         );
 };
-const RouterCustum = () =>{
+const RouterCustom = () =>{
     return renderUserRouter();
 };
-export default RouterCustum;
+export default RouterCustom;

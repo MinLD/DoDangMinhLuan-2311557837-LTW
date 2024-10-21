@@ -1,19 +1,23 @@
 @use "sass:map";
-@import "style/pages/theme";
+@import "style/pages/all";
 
 .footer{
-background-color: #4f4c4a;
-color: rgb(203, 203, 203);
-padding-top: 70px;
+// background-color: #4f4c4a;
+background-color: map.get($theme-colors , "main");
+color: rgb(255, 255, 255);
+padding-top: 70px ;
 padding-bottom: 0;
+padding: 70px ;
+
 
     .footer_about{
         margin-bottom: 30px;
-    
     .footer_about_logo{
         margin-bottom: 15px;
         display:inline-block;
         font-size: 24px;
+
+
     }
     ul li{
         font-size: 16px;
@@ -36,6 +40,9 @@ padding-bottom: 0;
             text-decoration: none;
             color: rgb(0, 0, 191);
             margin: 0 5px 20px 0;
+            img{
+                width: 40px;
+            }
         }
     }
 
@@ -70,7 +77,6 @@ padding-bottom: 0;
         text-align: center;
     }
    hr{
-    width: 100%;
     margin: 20px 0;
     border: 1px solid rgb(73, 71, 71);
    }

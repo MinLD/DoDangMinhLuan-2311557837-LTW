@@ -1,10 +1,29 @@
 @use "sass:map";
-@import "style/pages/theme";
+@import "style/pages/all";
+// .set_zindex{
+//     position: fixed;
+//     z-index: 5;
+// }
+// .set_zindex2{
+//     position: fixed;
+//     z-index: 4;
+//     margin-top: 45px;
+// }
+    .banner{
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
 
 .Header_top{
     background: map.get($theme-colors , "main" );
+    
 }
+.head_bt_bg{
+background-color: map.get($theme-colors, "head_bt_bg");
 
+}
 
 .Header_top_left{
 
@@ -80,62 +99,72 @@
 }
 
 .header_logo{
-    padding: 15px 0;
-}
-.header_menu{
-    padding: 24px 0;
-    ul{
-        display: flex;
-        justify-content: space-between;
-    
-    Li{
-        list-style: none;
-        margin: 0px 10px;
-        position: relative;
-        a{
-            text-decoration: none;
-            text-transform: uppercase;
-            color: black;
-            font-weight: bold;
-            letter-spacing: 2px;
-            transform: all 0.3s;
-            padding: 5px 0;
-            display: block;
-        }
+    padding: 7px 0 1px;
+      img{
+        width: 60px;
+        margin: 0px 250px; 
+        height: auto;
+     
+      }
+        
+        color: map.get($theme-colors,"head_bt_bg_text");
     }
-    li:hover .header_menu_dropdown{
-        opacity: 1;
-        visibility: visible;
-    }
-        .active a{
-            color: map.get($theme-colors , "main" );
-            
-          
+    .header_menu{
+        padding: 15px 0;
+        margin-left: 100px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+        
+        Li{
+            list-style: none;
+            margin: 0px 20px;
+            position: relative;
+            a{
+                text-decoration: none;
+               
+                color: map.get($theme-colors,"head_bt_bg_text");
+                letter-spacing: 2px;
+                transform: all 0.3s;
+                padding: 5px 0;
+                display: block;
+                font-size: 14px;
+            }
         }
-        .header_menu_dropdown{
-            background: #ffffff;
-            display: block;
-            position: absolute;
-            width: 220px;
-            z-index: 9;
-            padding: 5px 0;
-            transition: all, 0.3s;
-            opacity: 100;
-            visibility: hidden;
-            border-radius: 0% 10% ;
-            li{
+        li:hover .header_menu_dropdown{
+            opacity: 1;
+            visibility: visible;
+        }
+            // .active a{
+            //     // color: map.get($theme-colors , "main" );
                 
-                a{
-                    text-transform: capitalize;
-                    color: #000000;
-                    font-weight: 400;
-                    padding: 5px 15px;
+              
+            // }
+            .header_menu_dropdown{
+                background: map.get($theme-colors, "head_bt_bg" );
+                display: block;
+                position: absolute;
+                width: 220px;
+                z-index: 9;
+                padding: 5px 0;
+                transition: all, 0.1s;
+                opacity: 100;
+                visibility: hidden;
+                border-radius: 12px;
+                li{
+                    
+                    a{
+                       
+                        color: map.get($theme-colors ,"head_bt_bg_text"  );
+                        font-weight: 200;
+                        padding: 3px 3px;
+                    }
+                    :hover {
+                        color: map.get($theme-colors , "head_bt_bg_sub_text" );
+                    }
                 }
-                :hover {
-                    color: map.get($theme-colors , "main" );
                 }
-            }
-            }
+        }
+    
     }
-
-}
+    

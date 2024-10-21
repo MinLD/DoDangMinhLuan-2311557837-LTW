@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "style/pages/theme";
+@import "style/pages/all";
 
 
     section{
@@ -11,35 +11,43 @@
         // align-items: center;
         // padding: 100px;
         // box-sizing: border-box;
-        padding: 20px 20px 10px 5px;
+        padding: 50px;
+      
+     
         background: linear-gradient(0deg, #000000,#848282),url();
         background-blend-mode: screen;
+        .section_item{
+    
+          
+        }
     }
 
 
     .hp_about_layout1_img{
 
-    ul li{
-        list-style: none;
-        flex-wrap: wrap;
+   
         a{
             img{
                 max-width: 100%;
+                border-radius: 16px;
+                height: auto;
             }
         }
     }
 
   
       
-    }
     
-    .hp_about_tintuc{
-        padding: 10px;
+    
+    .hp_about_news{
+     
         flex-wrap: wrap;
         h2{
-            color: #6ab7e8;
+            font-size: 40px;
+            color: map.get($theme-colors, "head_bt_bg_sub_text" );
             margin: 20px;
             font-weight: 600;
+
         }
         ul{
             display: flex;
@@ -52,9 +60,10 @@
 
                 }
                
-                margin-left: 10px;
+                margin-left: 30px;
 img{
-    width: 160px;
+    width: 140px;
+    height: 80px;
 }
             }
         }
@@ -82,12 +91,16 @@ img{
     //     }
 
     // }
+
+
+
 .hp_br{
-    
+    padding: 5px 50px;
     background: linear-gradient(0deg, #676e6f,#090909),url();
     background-blend-mode: screen;
    h5{
-    color: #08C2FF;
+    color: map.get($theme-colors, "head_bt_bg_sub_text" );
+    padding: 4px;
    }
  
 
@@ -114,7 +127,7 @@ img{
 
 
   .hp_br_card{
-    max-width: 1500px;
+   
     margin: 40px auto;
     
     ul{
@@ -128,12 +141,15 @@ img{
             flex-basis: 23%;
             box-sizing: border-box;
             text-align: center;
-        
+        a{
+            text-decoration: none;
+        }
             h4{
                 color: rgb(191, 198, 204);
                 font-size: 17px;
             }
             button {
+
                 background-color: #fc8804; 
                 border: none;
                 color: white;
