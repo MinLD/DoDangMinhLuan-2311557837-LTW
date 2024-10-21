@@ -3,13 +3,12 @@ import "./style.scss";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { CgMail } from "react-icons/cg";
 import { FaAward, FaFacebook } from "react-icons/fa";
-import { SiZalo } from "react-icons/si";
-import { BsInstagram } from "react-icons/bs";
-
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 const Footer= () => {
     return (
+
         <div className="container">
        
     <div className="footer">
@@ -78,6 +77,7 @@ const Footer= () => {
                 <ul>
                     <li>
                         <a href="#">Chính sách bảo mật</a>
+                      
                       
                     </li>
                     <li>
