@@ -1,14 +1,123 @@
 @use "sass:map";
 @import "style/pages/all";
-// .set_zindex{
-//     position: fixed;
-//     z-index: 5;
-// }
-// .set_zindex2{
-//     position: fixed;
-//     z-index: 4;
-//     margin-top: 45px;
-// }
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+input[type="button"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    color: white;
+    background-color:map.get($theme-colors, "head_bt_bg_sub_text" );
+}
+
+input[type="email"],
+input[type="password"]
+ {
+ 
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.footer-links {
+
+    text-align: center;
+    span{
+      
+        color: map.get($theme-colors, "head_bt_bg_sub_text" );
+
+    }
+}
+
+.footer-links {
+    // a{
+    // display: block;
+    // color: #007BFF;
+    // text-decoration: none;
+    // margin: 5px 0;
+    // }
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-login svg {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.social-login svg:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: block; 
+    position: fixed; /* Vị trí cố định */
+    z-index: 1; /* Đặt lên trên cùng */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    // overflow: auto; /* Cuộn nếu cần */
+    background-color: rgba(0, 0, 0, 0.5); 
+    .modal-content {
+        background-color: #131212;
+        margin: 8% auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: 500px; 
+      
+        position: relative; /* Để đặt nút đóng */
+        border-radius: 12px;
+        h2{
+            padding: 20px;
+            font-size: 30PX;
+            font-weight: 700;
+            text-align: center;
+            color: map.get($theme-colors, "head_bt_bg_sub_text" );
+        }
+        .close {
+            border-radius: 2px;
+            text-align: center;
+            width: 25px;
+            background-color: #373434;
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            .close:hover,
+            .close:focus {
+                  color: rgb(194, 33, 33);
+                 text-decoration: none;
+                cursor: pointer;
+}
+        }
+    }
+
+}
+
+
     .banner{
         img{
             max-width: 100%;
@@ -34,8 +143,13 @@ background-color: map.get($theme-colors, "head_bt_bg");
         list-style: none;
         column-gap: 20px;
         align-items: center;
-        padding: 10px 0 13px;
+        padding: 13px 0 13px;
+       
         li{
+            margin-left: 2px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 3px;
             font-size: 14px;
             color: map.get($theme-colors, "normal-text" );
             display: flex;
@@ -67,12 +181,13 @@ background-color: map.get($theme-colors, "head_bt_bg");
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px 0 13px;
+    padding: 13px 0 13px;
     ul{
         display: flex;
         column-gap: 4px; //khoang cach item cach ra 10px
         list-style: none;
         a{
+            margin-right: 50px;
             font-size: 14px;
             display: inline-block;
             color: map.get($theme-colors, "normal-text");
@@ -89,7 +204,7 @@ background-color: map.get($theme-colors, "head_bt_bg");
                 margin-left: 2px;
                 display: inline-block;
                 vertical-align: middle;
-                margin-top: -6px;
+                margin-top: -2px;
             }
         
       

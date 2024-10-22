@@ -1,92 +1,127 @@
-import React, { memo ,useState } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 import './style.scss';
-import { AiOutlineFacebook, AiOutlineUser} from "react-icons/ai"
-import { BsCart4} from "react-icons/bs"
+import { AiOutlineFacebook, AiOutlineGoogle, AiOutlineUser  } from "react-icons/ai";
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
-import { Link } from "react-router-dom";
+const Header = () => {
+    
+   const [menus] = useState([
+    {
+        name: "Trang chủ",
+        path: ROUTERS.USER.HOME},
 
-
-const Header= () => {
-    const [menus] = useState([
+    {   name: "Giới thiệu",
+        path: ROUTERS.USER.info
+    },
         {
-            name: "Trang chủ",
-            path: ROUTERS.USER.HOME},
+        name: "Tin tức",
+        path: ROUTERS.USER.tintuc},
 
-        {   name: "Giới thiệu",
-            path: ROUTERS.USER.info
+        {
+        name: "Đăng ký thi",
+        path: ROUTERS.USER.dangkykh,
+        isShowSubmenu: false,
+        child : [
+         {
+            name: "Toeic",
+        path: ""}
+      
+
+        ]
         },
-            {
-            name: "Tin tức",
-            path: ROUTERS.USER.tintuc},
-
-            {
-            name: "Đăng ký thi",
+        {
+            name: "Thi thử Onine",
             path: ROUTERS.USER.dangkykh,
             isShowSubmenu: false,
             child : [
              {
                 name: "Toeic",
             path: ""}
-          
+            ]
+        },
+        {
+            name: "Ôn luyện",
+            path: ROUTERS.USER.dangkykh,
+            isShowSubmenu: false,
+            child : [
+             {
+                name: "Toeic",
+            path: ""}
+            ]
+        },
+        {
+            name: "Liên hệ",
+            path: ROUTERS.USER.dangkykh,
+            isShowSubmenu: false,
+            child : [
+             {
+                name: "Thông tin liên hệ",
+            path: ""},
+             
+             {
+                name: "Hỏi đáp",
+            path: ""
+             }
 
             ]
-            },
-            {
-                name: "Thi thử Onine",
-                path: ROUTERS.USER.dangkykh,
-                isShowSubmenu: false,
-                child : [
-                 {
-                    name: "Toeic",
-                path: ""}
-                ]
-            },
-            {
-                name: "Ôn luyện",
-                path: ROUTERS.USER.dangkykh,
-                isShowSubmenu: false,
-                child : [
-                 {
-                    name: "Toeic",
-                path: ""}
-                ]
-            },
-            {
-                name: "Liên hệ",
-                path: ROUTERS.USER.dangkykh,
-                isShowSubmenu: false,
-                child : [
-                 {
-                    name: "Thông tin liên hệ",
-                path: ""},
-                 
-                 {
-                    name: "Hỏi đáp",
-                path: ""
-                 }
-    
-                ]
-            }
-           
-        
-    ])
-    const [logins] = useState([
-        {
-            name: "Đăng nhập",
-            path: ROUTERS.USER.login},
-
-        {   name: "Đăng ký",
-            path: ROUTERS.USER.register
         }
-    ])
+       
     
+])
+const [logins] = useState([
+    {
+        name: "Đăng nhập",
+        path: ROUTERS.USER.login},
+
+    {   name: "Đăng ký",
+        path: ROUTERS.USER.register
+    }
+])
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [rememberMe, setRememberMe] = useState(false);
+
+
+    
+    const [isLoginBoxVisible, setLoginBoxVisible] = useState(false);
+    const loginBoxRef = useRef(null); // Tham chiếu đến khung đăng nhập
+
+    const toggleLoginBox = () => {
+        setLoginBoxVisible(!isLoginBoxVisible);
+    };
+
+    // Hàm để đóng khung đăng nhập khi nhấn ra ngoài
+    const handleClickOutside = (event) => {
+        if (loginBoxRef.current && !loginBoxRef.current.contains(event.target)) {
+            setLoginBoxVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        // Thêm sự kiện khi nhấn ra ngoài
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            // Xóa sự kiện khi component bị hủy
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    const handleLogin = () => {
+        // Logic xử lý đăng nhập
+        console.log("Email:", email);
+        console.log("Password:", password);
+        console.log("Remember Me:", rememberMe);
+        // Reset form sau khi đăng nhập
+        setEmail("");
+        setPassword("");
+        setRememberMe(false);
+    };
+
     return (
         <>
          <div className="container set_zindex" >
-      
  <div className="Header_top">
+    <div className="container_sub">
             <div className="row">
                 <div className="col-6 Header_top_left">
                     <ul>
@@ -122,10 +157,57 @@ const Header= () => {
                                 </a>
                          </li> */}
                          <li> 
-                            <a href=" ">
-                             <AiOutlineUser size={16} />
-                             <span>Đăng Nhập</span>
-                            </a> 
+                         <a href="#" onClick={toggleLoginBox}>
+                                            <AiOutlineUser  size={16} />
+                                            <span>Đăng Nhập</span>
+                                      
+                            
+                             </a>
+                             {isLoginBoxVisible && (
+                    <div id="login-box" className="modal">
+                        <div className="modal-content" ref={loginBoxRef}>
+                            <div className="close" onClick={toggleLoginBox}>&times;</div>
+                            <h2>ĐĂNG NHẬP</h2>
+                            {/* <label htmlFor="email">Email:</label> */}
+                            <input
+                                
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                l
+                            />
+                            {/* <label htmlFor="password">Mật khẩu:</label> */}
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={rememberMe}
+                                    onChange={() => setRememberMe(!rememberMe)}
+                                />
+                                Ghi nhớ mật khẩu
+                            </label><br /><br />
+                            <input type="button" value="Đăng Nhập" onClick={handleLogin} />
+                            <div className="footer-links">
+                                <a href="#">Bạn chưa có mật khẩu? <span>Đăng ký ngay</span> </a>
+                                <a href="#"><span>Quên mật khẩu?</span></a>
+                                {/* <hr/>
+                                <span>Đăng nhập với:</span>
+                                <div className="social-login">
+                                    <AiOutlineFacebook size={24} onClick={() => console.log("Login with Facebook")} />
+                                    <AiOutlineGoogle size={24} onClick={() => console.log("Login with Google")} />
+                                </div> */}
+                            </div>
+                        </div>
+                    </div>
+                )}
                          </li>
                          {/* <li>
                             <a href="" >
@@ -172,7 +254,7 @@ const Header= () => {
 
              </nav>
         </div>
-       
+        </div>
     </div>
    </div>
    <div className="container">
