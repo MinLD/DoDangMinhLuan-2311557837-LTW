@@ -12,15 +12,15 @@ const Header = () => {
         path: ROUTERS.USER.HOME},
 
     {   name: "Giới thiệu",
-        path: ROUTERS.USER.info
+        path: ROUTERS.USER.INTRODUCE
     },
         {
         name: "Tin tức",
-        path: ROUTERS.USER.tintuc},
+        path: ROUTERS.USER.NEWS},
 
         {
         name: "Đăng ký thi",
-        path: ROUTERS.USER.dangkykh,
+        path: "#",
         isShowSubmenu: false,
         child : [
          {
@@ -32,7 +32,7 @@ const Header = () => {
         },
         {
             name: "Thi thử Onine",
-            path: ROUTERS.USER.dangkykh,
+            path: "#",
             isShowSubmenu: false,
             child : [
              {
@@ -42,7 +42,7 @@ const Header = () => {
         },
         {
             name: "Ôn luyện",
-            path: ROUTERS.USER.dangkykh,
+            path: "#",
             isShowSubmenu: false,
             child : [
              {
@@ -52,7 +52,7 @@ const Header = () => {
         },
         {
             name: "Liên hệ",
-            path: ROUTERS.USER.dangkykh,
+            path: "#",
             isShowSubmenu: false,
             child : [
              {
@@ -69,15 +69,7 @@ const Header = () => {
        
     
 ])
-const [logins] = useState([
-    {
-        name: "Đăng nhập",
-        path: ROUTERS.USER.login},
 
-    {   name: "Đăng ký",
-        path: ROUTERS.USER.register
-    }
-])
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [rememberMe, setRememberMe] = useState(false);
@@ -136,33 +128,23 @@ const [rememberMe, setRememberMe] = useState(false);
                 </div>
                 <div className="col-6 Header_top_right">
                      <ul>
-                         {/* <li>
-                                <a href=" ">
-                                <AiOutlineFacebook/> 
-                                </a>
-                         </li>
-                         <li>
-                                <a href=" ">
-                                <AiOutlineFacebook/> 
-                                </a>
-                         </li>
-                         <li>
-                                <a href=" ">
-                                <AiOutlineFacebook/> 
-                                </a>
-                         </li>
-                         <li>
-                                <a href=" ">
-                                <AiOutlineFacebook/> 
-                                </a>
-                         </li> */}
                          <li> 
                          <a href="#" onClick={toggleLoginBox}>
-                                            <AiOutlineUser  size={16} />
-                                            <span>Đăng Nhập</span>
-                                      
+                                          
+                                            <span className="login">
+                                                <button> Đăng nhập</button>
+                                                
+                                            </span>
+                              
                             
                              </a>
+                             <a href="#" onClick={toggleLoginBox}>
+                                          <span className="login">
+                                              <button className="register"> Đăng ký</button>
+                                          </span>
+                                    
+                          
+                           </a>
                              {isLoginBoxVisible && (
                     <div id="login-box" className="modal">
                         <div className="modal-content" ref={loginBoxRef}>
@@ -209,13 +191,54 @@ const [rememberMe, setRememberMe] = useState(false);
                     </div>
                 )}
                          </li>
-                         {/* <li>
-                            <a href="" >
-                            <BsCart4 size={20}/>
-                            </a>
-                        
-                            
-                        </li> */}
+                    
+                             {isLoginBoxVisible && (
+                    <div id="login-box" className="modal">
+                        <div className="modal-content" ref={loginBoxRef}>
+                            <div className="close" onClick={toggleLoginBox}>&times;</div>
+                            <h2>ĐĂNG NHẬP</h2>
+                            {/* <label htmlFor="email">Email:</label> */}
+                            <input
+                                
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                l
+                            />
+                            {/* <label htmlFor="password">Mật khẩu:</label> */}
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={rememberMe}
+                                    onChange={() => setRememberMe(!rememberMe)}
+                                />
+                                Ghi nhớ mật khẩu
+                            </label><br /><br />
+                            <input type="button" value="Đăng Nhập" onClick={handleLogin} />
+                            <div className="footer-links">
+                                <a href="#">Bạn chưa có mật khẩu? <span>Đăng ký ngay</span> </a>
+                                <a href="#"><span>Quên mật khẩu?</span></a>
+                                {/* <hr/>
+                                <span>Đăng nhập với:</span>
+                                <div className="social-login">
+                                    <AiOutlineFacebook size={24} onClick={() => console.log("Login with Facebook")} />
+                                    <AiOutlineGoogle size={24} onClick={() => console.log("Login with Google")} />
+                                </div> */}
+                            </div>
+                        </div>
+                    </div>
+                )}
+                    
+                     
                      </ul> 
                 </div>
             </div>
@@ -257,11 +280,7 @@ const [rememberMe, setRememberMe] = useState(false);
         </div>
     </div>
    </div>
-   <div className="container">
-     <div className="banner">
-        <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Default/Media/Images/2223af49-a76a-48a3-adb7-6a1782ea1974/default_image_2223af49-a76a-48a3-adb7-6a1782ea1974_1921-x-641-3-(3)-(6)_1727235877319.jpg"></img>
-     </div>
-     </div>
+ 
     
         </>
    

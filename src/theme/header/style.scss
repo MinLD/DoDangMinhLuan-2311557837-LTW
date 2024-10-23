@@ -98,6 +98,7 @@ input[type="checkbox"] {
             color: map.get($theme-colors, "head_bt_bg_sub_text" );
         }
         .close {
+            cursor: pointer;
             border-radius: 2px;
             text-align: center;
             width: 25px;
@@ -108,7 +109,7 @@ input[type="checkbox"] {
             font-weight: bold;
             .close:hover,
             .close:focus {
-                  color: rgb(194, 33, 33);
+                  color: rgb(206, 162, 162);
                  text-decoration: none;
                 cursor: pointer;
 }
@@ -118,12 +119,7 @@ input[type="checkbox"] {
 }
 
 
-    .banner{
-        img{
-            max-width: 100%;
-            height: auto;
-        }
-    }
+ 
 
 .Header_top{
     background: map.get($theme-colors , "main" );
@@ -176,42 +172,38 @@ background-color: map.get($theme-colors, "head_bt_bg");
 }
 
 .Header_top_right{
-    
-  
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 13px 0 13px;
     ul{
         display: flex;
-        column-gap: 4px; //khoang cach item cach ra 10px
         list-style: none;
         a{
-            margin-right: 50px;
-            font-size: 14px;
             display: inline-block;
             color: map.get($theme-colors, "normal-text");
             text-decoration: none;
+button {
+    background-color: #d2610b; /* Màu nền */
+    border: none; /* Không viền */
+    color: white; /* Màu chữ */
+    padding: 8px;/* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa chữ */
+    display: inline-block; /* Hiển thị inline */
+    font-size: 14px; /* Kích thước chữ */
+    border-radius: 5px; /* Bo góc */
+    margin: 2px;
+}
+.register {
+    background-color: #049559; 
+}
+            
+
+
+            }
         }
-   
-            li:last-child{
-                cursor: pointer;
-                margin-left: 10px;
-                
-            }
-            span{
-                font-size: 16px;
-                margin-left: 2px;
-                display: inline-block;
-                vertical-align: middle;
-                margin-top: -2px;
-            }
-        
-      
-        
 }
 
-}
+
 
 .header_logo{
     padding: 7px 0 1px;
@@ -225,6 +217,7 @@ background-color: map.get($theme-colors, "head_bt_bg");
         color: map.get($theme-colors,"head_bt_bg_text");
     }
     .header_menu{
+        cursor: pointer;
         padding: 15px 0;
         margin-left: 100px;
         ul{

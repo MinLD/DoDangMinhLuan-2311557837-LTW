@@ -1,10 +1,11 @@
 import { memo } from "react";
 import "./style.scss";
+import Slider from "./slider";
 const HomePage = () => {
  
     return (
   <>
-   
+    <Slider/>
         <section>
         <div className="container_sub">
         <div className="row section_item">
