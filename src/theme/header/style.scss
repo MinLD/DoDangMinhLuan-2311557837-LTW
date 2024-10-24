@@ -19,41 +19,35 @@ input[type="button"]{
 input[type="email"],
 input[type="password"]
  {
- 
     width: 95%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    text-align: center
+    background-color: #131212;
+    color: white;
+}
+input[type="email"]:hover,
+input[type="password"]:hover{
+    border: 1px solid map.get($theme-colors, "head_bt_bg_sub_text" );
 }
 
 input[type="checkbox"] {
     margin-right: 5px;
 }
 
+
 .footer-links {
-
-    text-align: center;
-    span{
-      
-        color: map.get($theme-colors, "head_bt_bg_sub_text" );
-
+span{
+    a.footer-links-item{
+        text-decoration: none;
+        color: map.get($theme-colors , "head_bt_bg_sub_text" );
     }
+    color: rgb(237, 237, 237);
+    margin: 25px;
+}
 }
 
-.footer-links {
-    // a{
-    // display: block;
-    // color: #007BFF;
-    // text-decoration: none;
-    // margin: 5px 0;
-    // }
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
 
 .social-login {
     display: flex;

@@ -203,6 +203,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                 type="email"
                                 id="email"
                                 name="email"
+                                        placeholder="Email hoặc số điện thoại đăng nhập"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 l
@@ -212,6 +213,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                 type="password"
                                 id="password"
                                 name="password"
+                                placeholder="Mật khẩu"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
@@ -225,8 +227,15 @@ const [rememberMe, setRememberMe] = useState(false);
                             </label><br /><br />
                             <input type="button" value="Đăng Nhập" onClick={handleLogin} />
                             <div className="footer-links">
-                                <a href="#">Bạn chưa có mật khẩu? <span>Đăng ký ngay</span> </a>
-                                <a href="#"><span>Quên mật khẩu?</span></a>
+                               <span>
+                                Bạn chưa có tài khoản? 
+                               <a href="#" className="footer-links-item">Đăng ký ngay </a>
+                                </span> 
+                              
+                            <span>
+                              <a href="#" className="footer-links-item">Quên mật khẩu?</a>
+                              </span>
+                              
                                 {/* <hr/>
                                 <span>Đăng nhập với:</span>
                                 <div className="social-login">
