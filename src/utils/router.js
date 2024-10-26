@@ -1,4 +1,5 @@
 
+
 export const ROUTERS ={
     USER : {
         HOME : "/Trang-chu",
@@ -6,12 +7,10 @@ export const ROUTERS ={
         INTRODUCE : "/Gioi-thieu",
         NEWS: "/Tin-tuc",
 
-
-        
-        dangkykh: "/dang-ky-khoa-hoc",
-        thithu: "/thi-thu-Online",
-        onluyen: "/on-luyen",
-        lienhe: "/lien/he"
+        RegisterExam: "/dang-ky-khoa-hoc",
+        TestOnline: "/thi-thu-Online",
+        Review: "/on-luyen",
+    
      
     },
 };

@@ -5,6 +5,9 @@ import Masterlayout from "./theme/masterlayout";
 import ProfilePage from "./pages/user/profilePage";
 import AboutNews from "pages/user/AboutNews";
 import AboutIntroduce from "pages/user/AboutIntroduce";
+import Review from "pages/user/Review";
+import Register_Exam from "pages/user/Register_Exam";
+import TEST_ONLINE from "pages/user/TEST_ONLINE";
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -24,7 +27,20 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.INTRODUCE,
             component: <AboutIntroduce />
         },
+        {
+            path: ROUTERS.USER.Review,
+            component: <Review/>
+        },
+        {
+            path: ROUTERS.USER.RegisterExam,
+            component: <Register_Exam/>
+        },
+        {
+            path: ROUTERS.USER.TestOnline,
+            component: <TEST_ONLINE />
+        },
     ];
+   
 
     return (
         <Masterlayout>
@@ -34,7 +50,11 @@ const renderUserRouter = () => {
                 ))}
                 <Route path="/news" element={<AboutNews />} />
                 <Route path="/introduce" element={<AboutIntroduce />} />
+                <Route path="/test_online" element={<TEST_ONLINE />} />
+                <Route path="/register_exam" element={<Register_Exam />} />
+                <Route path="/review" element={<Review />} />
                 <Route path="/" element={<Navigate to={ROUTERS.USER.HOME} />} />
+
             </Routes>
         </Masterlayout>
     );

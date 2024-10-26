@@ -1,14 +1,14 @@
 import React, { memo } from "react";
 import './style.scss';
 
-const AboutIntroduce = () =>{
+const TEST_ONLINE = () =>{
 
     return (
         <div >
-            <h1 >Giới Thiệu tại đây!</h1>
+            <h1 >Thi thử tại đây!</h1>
 
             
         </div>
     )
 }
-export default memo( AboutIntroduce);
+export default memo( TEST_ONLINE);

@@ -1,6 +1,7 @@
 @use "sass:map";
 @import "theme";
 @import "reponsive";
+
 html,
 body{
     margin: 0;
@@ -18,18 +19,15 @@ body{
 .container_sub{
     cursor: pointer;
     max-width: 1170px;
-    width: 100%;
+   
     margin: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+   
 }
 .container{
-
+  
     max-width: 1512.8px;
-    width: 100%;
-    // padding-left: 15px;
-    // padding-right: 15px;
-    // background: map.get($theme-colors, "main");
+   
+
     margin: auto;
 }
 .row{

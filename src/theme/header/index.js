@@ -2,53 +2,40 @@ import React, { memo, useState, useEffect, useRef } from "react";
 import './style.scss';
 import { AiOutlineFacebook, AiOutlineGoogle, AiOutlineUser  } from "react-icons/ai";
 import { CgMail } from "react-icons/cg";
-import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { MdLanguage, MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
 const Header = () => {
     
    const [menus] = useState([
     {
         name: "Trang chủ",
-        path: ROUTERS.USER.HOME},
-
-    {   name: "Giới thiệu",
-        path: ROUTERS.USER.INTRODUCE
-    },
-        {
-        name: "Tin tức",
-        path: ROUTERS.USER.NEWS},
-
-        {
-        name: "Đăng ký thi",
-        path: "#",
+        path: ROUTERS.USER.HOME,
         isShowSubmenu: false,
         child : [
          {
-            name: "Toeic",
-        path: ""}
-      
-
+            name: "Giới thiệu",
+            path: ROUTERS.USER.INTRODUCE
+        },
+        {
+            name: "Tin tức",
+            path: ROUTERS.USER.NEWS
+        },
         ]
+    },
+        {
+        name: "Đăng ký thi",
+        path: ROUTERS.USER.RegisterExam,
+       
         },
         {
             name: "Thi thử Onine",
-            path: "#",
-            isShowSubmenu: false,
-            child : [
-             {
-                name: "Toeic",
-            path: ""}
-            ]
+            path: ROUTERS.USER.TestOnline,
+            
         },
         {
-            name: "Ôn luyện",
-            path: "#",
-            isShowSubmenu: false,
-            child : [
-             {
-                name: "Toeic",
-            path: ""}
-            ]
+            name: "Công cụ ôn thi",
+            path: ROUTERS.USER.Review,
+           
         },
         {
             name: "Liên hệ",
@@ -145,6 +132,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                     
                           
                            </a>
+                          
                              {isLoginBoxVisible && (
                     <div id="login-box" className="modal">
                         <div className="modal-content" ref={loginBoxRef}>
@@ -192,6 +180,7 @@ const [rememberMe, setRememberMe] = useState(false);
                 )}
                          </li>
                     
+                            {/* register */}
                              {isLoginBoxVisible && (
                     <div id="login-box" className="modal">
                         <div className="modal-content" ref={loginBoxRef}>
@@ -272,7 +261,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                 <ul className="header_menu_dropdown"> 
                                 {menu.child.map((childItem,childkey)=>(
                                      <li key={`${childkey}-${childkey}`}>
-                                     <a className={childItem.path}>{childItem.name}</a>
+                                     <a href={childItem.path}>{childItem.name}</a>
                                  </li>
                                 ))}
                                    
