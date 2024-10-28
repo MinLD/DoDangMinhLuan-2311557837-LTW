@@ -78,11 +78,18 @@
         </div>
           </section>
     
-
-
-
-
           <div className="hp_br" >
+          <div className="container_sub">
+              <br/>
+              <br/>
+                  <div className="title"> <h5>CÔNG CỤ ÔN THI</h5></div>
+                
+            </div>
+            
+
+
+
+        
           <div className="container_sub">
               <br/>
               <br/>
@@ -119,6 +126,12 @@
                     </ul>
                   </div>
             </div>
+            <div className="container_sub"> 
+            <div className="evaluate">
+ <h1>Cảm nhận của khách hàng</h1>
+</div>
+            </div>
+           
             </div>
           
     </>

@@ -4,26 +4,27 @@ import { AiOutlineFacebook, AiOutlineGoogle, AiOutlineUser  } from "react-icons/
 import { CgMail } from "react-icons/cg";
 import { MdLanguage, MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
+import { Route } from "react-router-dom";
 const Header = () => {
     
    const [menus] = useState([
     {
         name: "Trang chủ",
         path: ROUTERS.USER.HOME,
-        isShowSubmenu: false,
-        child : [
-         {
-            name: "Giới thiệu",
-            path: ROUTERS.USER.INTRODUCE
-        },
-        {
-            name: "Tin tức",
-            path: ROUTERS.USER.NEWS
-        },
-        ]
+        // isShowSubmenu: false,
+        // child : [
+        //  {
+        //     name: "Giới thiệu",
+        //     path: ROUTERS.USER.INTRODUCE
+        // },
+        // {
+        //     name: "Tin tức",
+        //     path: ROUTERS.USER.NEWS
+        // },
+        // ]
     },
         {
-        name: "Đăng ký thi",
+        name: "Khóa tự học",
         path: ROUTERS.USER.RegisterExam,
        
         },
@@ -38,20 +39,20 @@ const Header = () => {
            
         },
         {
-            name: "Liên hệ",
-            path: "#",
-            isShowSubmenu: false,
-            child : [
-             {
-                name: "Thông tin liên hệ",
-            path: ""},
+            name: "Tin tức",
+            path: ROUTERS.USER.NEWS,
+            // isShowSubmenu: false,
+            // child : [
+            //  {
+            //     name: "Thông tin liên hệ",
+            // path: ""},
              
-             {
-                name: "Hỏi đáp",
-            path: ""
-             }
+            //  {
+            //     name: "Hỏi đáp",
+            // path: ""
+            //  }
 
-            ]
+            // ]
         }
        
     
@@ -278,7 +279,7 @@ const [rememberMe, setRememberMe] = useState(false);
         </div>
     </div>
    </div>
- 
+   <div className="push"></div> 
     
         </>
    

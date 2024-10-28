@@ -15,10 +15,10 @@
     border-bottom: 2px solid #34393b;
     width: 100%;
     display: flex;
-    span{
+    span {
         margin: 0px 1px;
         font-size: 22px;
-        text-transform: capitalize;
+
         font-weight: 700;
         border-radius: 10px 10px 0px 0px;
         padding: 10px 20px;
@@ -26,8 +26,9 @@
         color: map.get($theme-colors , "head_bt_bg_text" );
    
     }
+
     span:hover{
-        background-color: #093e71;
+        background-color: #a76a1b;
     }
 
 }
@@ -44,9 +45,12 @@ padding: 15px 0;
 ul{
 display:flex;
 list-style: none;
+flex-wrap: wrap;
+
 
     li{
-        padding-left: 15px;
+        padding-bottom: 30px;
+       padding-left: 15px;
         padding-right: 15px;
         flex-basis: 25%;
         box-sizing: border-box;

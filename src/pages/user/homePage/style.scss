@@ -169,7 +169,7 @@
     .title {
         position: relative;
         text-align: center;
-        font-size: 3rem;
+        font-size: 35PX;
         margin-bottom: 20px;
     }
     
@@ -181,7 +181,7 @@
         transform: translateX(-50%);
         width: 250px;
         height: 5px;
-        background-color: #ff6201;
+        background-color: #f48b33;
         border-radius: 50% / 2px; /* Tạo hiệu ứng cong chéo */
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Tạo hình dạng cho thanh trang trí */
     }

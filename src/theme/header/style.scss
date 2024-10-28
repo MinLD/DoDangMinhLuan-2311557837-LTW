@@ -113,10 +113,26 @@ span{
 }
 
 
+ .push{
+    margin-top: 106px;
+ }
+.set_zindex{
+    position: fixed; 
+    z-index: 1000; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    
  
-
+}
 .Header_top{
     background: map.get($theme-colors , "main" );
+
+     // Padding cho header
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho header
+   // Đặt header ở vị trí cố định
+
+   // Đặt z-index cao để nó nằm trên các phần tử khác
     
 }
 .head_bt_bg{
@@ -257,6 +273,7 @@ button {
                 opacity: 100;
                 visibility: hidden;
                 border-radius: 12px;
+           
                 li{
                     
                     a{
