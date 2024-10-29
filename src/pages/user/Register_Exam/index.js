@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import './style.scss';
 import { FaStar } from "react-icons/fa";
 
+
 const REGISTER_EXAM = () =>{
 
     return (
@@ -34,8 +35,9 @@ const REGISTER_EXAM = () =>{
                            <button>xem chi tiết</button>
                            </span>
                         </div>
+                     
                     </li>
-                    <li>
+                     <li>
                         <div className="Regis_Ex-List_card">
                            
                            <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Course/Media/Images/8a3d2fc0-13e2-47e7-89ff-ed8128f7d773/image_8a3d2fc0-13e2-47e7-89ff-ed8128f7d773_sw-2_small_1729579320509.png"/>
@@ -46,14 +48,13 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_left">2.830.000đ</span>
                            <span className="monney_right">1.990.000đ</span>
                            </span>
-                        
                            <button>xem chi tiết</button>
                            </span>
                         </div>
-                    </li>
+                    </li> 
                 </ul>
             </div>
-            <div className="Regis_Ex-List">
+             <div className="Regis_Ex-List">
                 <h3>Khóa học luyện thi TOEIC Listening & Reading toàn diện</h3>
                 <ul>
                     <li>
@@ -140,10 +141,11 @@ const REGISTER_EXAM = () =>{
                            <button>xem chi tiết</button>
                            </span>
                         </div>
-                    </li>
-                </ul>
+                    </li> 
+                </ul> 
             </div>
-            </div>
+
+            </div> 
 
 
         

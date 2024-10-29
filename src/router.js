@@ -2,7 +2,7 @@ import { ROUTERS } from "./utils/router";
 import HomePage from "./pages/user/homePage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Masterlayout from "./theme/masterlayout";
-import ProfilePage from "./pages/user/profilePage";
+
 import AboutNews from "pages/user/AboutNews";
 import AboutIntroduce from "pages/user/AboutIntroduce";
 import Review from "pages/user/Review";
@@ -15,10 +15,7 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.HOME,
             component: <HomePage />
         },
-        {
-            path: ROUTERS.USER.PROFILE,
-            component: <ProfilePage />
-        },
+    
         {
             path: ROUTERS.USER.NEWS,
             component: <AboutNews />
