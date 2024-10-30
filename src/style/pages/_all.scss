@@ -49,10 +49,7 @@ body{
     max-width: 50%;
    
 }
-.col-lg-9{
-  
-   
-}
+
 @include Reponsive($SMALL_DEVICE){
     .col-xs-12 {
         flex: 0 0 100%;

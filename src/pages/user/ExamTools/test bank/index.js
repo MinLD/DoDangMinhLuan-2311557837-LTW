@@ -1,59 +1,23 @@
-import React, { memo, useState } from "react";
-import './style.scss';
-import { Link } from 'react-router-dom';
+import React ,{ memo ,useState} from "react"
 import { FaStar } from "react-icons/fa";
-const REVIEW = () =>{
-    // Logic TOEIC Listening & Reading
-    const length = 3;
-    const [showMore, setShowMore] = useState(0);
-    const handleShowMore = () => {
-        {showMore < length ? setShowMore(showMore+1): setShowMore(0)}
-    };
-    // Logic TOEIC Speaking & Writing
-    const length1 =3;
-    const [showMore1, setShowMore1] = useState(0)
-    const handleShowMore1=()=>{
-        {showMore1 < length1 ? setShowMore1(showMore1 +1) : setShowMore1(0)}
-    }
-    //  // Logic TOEFL PRIMARY
-    //  const length2 =3;
-    //  const [showMore2, setShowMore2] = useState(0)
-    //  const handleShowMore2=()=>{
-    //      {showMore2 < length2 ? setShowMore2(showMore2 +1) : setShowMore2(0)}
-    //  }
-    //    // TOEFL JUNIOR
-    //    const length3 =3;
-    //    const [showMore3, setShowMore3] = useState(0)
-    //    const handleShowMore3=()=>{
-    //        {showMore3 < length3 ? setShowMore3(showMore3 +1) : setShowMore3(0)}
-    //    }
-    //      // TOEFL ITP
-    //    const length4 =3;
-    //    const [showMore4, setShowMore4] = useState(0)
-    //    const handleShowMore4=()=>{
-    //        {showMore4 < length4 ? setShowMore4(showMore4 +1) : setShowMore4(0)}
-    //    }
-    //         // TOEFL iBT
-    //         const length5=3;
-    //         const [showMore5, setShowMore5] = useState(0)
-    //         const handleShowMore5=()=>{
-    //             {showMore5 < length5 ? setShowMore5(showMore5 +1) : setShowMore5(0)}
-    //         }
-    return (
-        <>
-         <div className="container bg_sub" >
-            <div className="container_sub">
-            <div className="Regis_Ex">
-            <h1 >
-                    TIẾNG ANH
-            </h1>
-            <div className="Regis_Ex-menu">
-              <span>Kho đề thi thử</span>
-           <span>Khoá học online</span>
-          </div>
-      
-          {/*Open TOEIC Listening & Reading */}
-            <div className="Regis_Ex-List">
+
+const TestBank= ()=>{
+        // Logic TOEIC Listening & Reading
+        const length = 3;
+        const [showMore, setShowMore] = useState(0);
+        const handleShowMore = () => {
+            {showMore < length ? setShowMore(showMore+1): setShowMore(0)}
+        };
+        // Logic TOEIC Speaking & Writing
+        const length1 =3;
+        const [showMore1, setShowMore1] = useState(0)
+        const handleShowMore1=()=>{
+            {showMore1 < length1 ? setShowMore1(showMore1 +1) : setShowMore1(0)}
+        }
+return(
+    <>
+    {/*Open TOEIC Listening & Reading */}
+    <div className="Regis_Ex-List">
                 <h3>TOEIC Listening & Reading</h3>
                 <ul>
                
@@ -568,18 +532,7 @@ const REVIEW = () =>{
 
             </div>
            {/*Close TOEIC Speaking & Writing */}
-        
-            </div>
-
-
-        
-       
-            </div>
-           
-
-            
-        </div>
-        </>
-    )
+    </>
+)
 }
-export default memo( REVIEW);
+export default memo(TestBank);

@@ -1,6 +1,84 @@
     @use "sass:map";
     @import "style/pages/all";
+    .title_feel{
+        text-align: center;
+        padding: 40px;
+        color: #7bbff5;
+        font-weight: 600;
+    }
+    .slider_show {
+        overflow: hidden;
+        position: relative;
+        
+        .list_feel {
+            display: flex;
+            justify-content: center; 
+            
+            ul {
+                display: flex;
+                justify-content: space-between; 
+                padding: 0; 
+                margin: 0; 
+                list-style: none;
+         
+                li {
+               
+                    margin: 0 15px; 
+                    .feel_card {
+                        background-color: #093e71;
+                        border-radius: 60px 0px;
+                        width: 550px;
+                        height: 150px;
+                        display: flex;
+                        align-items: center;
+                        padding: 10px;
+                  .feel_card-image{
+                    margin-right: 20px;
+                    
+                    img{
+                       border-radius: 50%; 
+                       width: 120px;
+                       height: 120px;
+                       transform: translateY(-5px);  
+                       margin-left: 10px;
+                    }
+                  }
+                  .feel_card-info{
+                    display: block;
+                    transform: translateY(-10px);
+                    color: #e7e5e1;
+                    strong{
+                        font-size: 20px;
+                    }
+                    strong,h6{
+                       margin-bottom: 20px;
+                    }
+                    h6{
+                        font-size: 12px;
+                    }
+                    h4{
+                        font-style: italic;
+                        padding-right: 30px;
+                    }
+                 
+                  }
+                       
+                    }
+                }
+            }
+        }
+    }
+    .btns{
+        .btn_left_feel{
+            left: 0;
+            
+        }
+        .btn_right_feel{
+            right:  0;
+            
+        }
 
+    }
 
     
     .slider_show {
@@ -38,17 +116,23 @@
 
         .index_images{
             position: absolute;
-            bottom: 10px;
+            bottom: 15px;
             display: flex;
             left: 50%;
         transform: translateX(-50%);
+
             .index_images_item{
                 margin: 10px;
                 padding: 5px;
                 border-radius: 50%;
-                border: 2px solid #ffffff;
-            }   
-            .active{
+                border: 1px solid #474746;
+                transition: background-color 0.3s;
+   
+            }  
+                .active{
+                background-color: map.get($theme-colors , "head_bt_bg_sub_text" );
+            } 
+            .index_images_item.active_feel{
                 background-color: map.get($theme-colors , "head_bt_bg_sub_text" );
             }
         }
@@ -68,10 +152,7 @@
         
             background: linear-gradient(0deg, #000000,#848282),url();
             background-blend-mode: screen;
-            .section_item{
-        
-            
-            }
+          
         }
 
 
@@ -232,4 +313,7 @@
             }
         }
     }
+    }
+    .evaluate{
+        padding-bottom: 100px;
     }

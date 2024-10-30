@@ -15,21 +15,33 @@
     border-bottom: 2px solid #34393b;
     width: 100%;
     display: flex;
-    span {
+    
+    
+        
+    span{
+ 
+        a{
+            text-decoration: none;
+            color: map.get($theme-colors , "head_bt_bg_text" );
+        }
         margin: 0px 1px;
         font-size: 22px;
 
         font-weight: 700;
         border-radius: 10px 10px 0px 0px;
         padding: 10px 20px;
-        background-color: #093e71;
-        color: map.get($theme-colors , "head_bt_bg_text" );
+        background-color:  #3e4446;
+        
    
     }
-
-    span:hover{
-        background-color: #a76a1b;
+    .Review_active{
+        background-color: #093e71;
     }
+    span:hover{
+        background-color: #093e71;
+    }
+
+  
 
 }
 .Regis_Ex-ListItem{

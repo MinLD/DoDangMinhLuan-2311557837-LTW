@@ -1,10 +1,10 @@
 import React, { memo, useState, useEffect, useRef } from "react";
 import './style.scss';
-import { AiOutlineFacebook, AiOutlineGoogle, AiOutlineUser  } from "react-icons/ai";
+
 import { CgMail } from "react-icons/cg";
-import { MdLanguage, MdOutlinePhoneInTalk } from "react-icons/md";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
-import { Route } from "react-router-dom";
+
 const Header = () => {
     
    const [menus] = useState([
