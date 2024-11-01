@@ -1,10 +1,8 @@
 import React, { memo, useState, useEffect, useRef } from "react";
 import './style.scss';
-
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
-
 const Header = () => {
     
    const [menus] = useState([
@@ -104,11 +102,11 @@ const [rememberMe, setRememberMe] = useState(false);
 
     return (
         <>
-         <div className="container set_zindex" >
+         <div className="container_big set_zindex" >
  <div className="Header_top">
     <div className="container_sub">
-            <div className="row">
-                <div className="col-6 Header_top_left">
+            <div className="row-html">
+                <div className="col-6-html Header_top_left">
                     <ul>
                         <li>
                             
@@ -119,12 +117,12 @@ const [rememberMe, setRememberMe] = useState(false);
                         </li>
                     </ul>
                 </div>
-                <div className="col-6 Header_top_right">
+                <div className="col-6-html Header_top_right">
                      <ul>
                          <li> 
                          <a href="#" onClick={toggleLoginBox}>
                                           
-                                            <span className="login">
+                                            <span className="login-html">
                                                 <button> Đăng nhập</button>
                                                 
                                             </span>
@@ -133,29 +131,30 @@ const [rememberMe, setRememberMe] = useState(false);
                              </a>
                              <a href="#" onClick={toggleLoginBox}>
                                           <span className="login">
-                                              <button className="register"> Đăng ký</button>
+                                              <button className="register-html"> Đăng ký</button>
                                           </span>
                                     
                           
                            </a>
                           
                              {isLoginBoxVisible && (
-                    <div id="login-box" className="modal">
+                    <div id="login-box" className="modal-html">
                         <div className="modal-content" ref={loginBoxRef}>
-                            <div className="close" onClick={toggleLoginBox}>&times;</div>
+                            <div className="close-html" onClick={toggleLoginBox}>&times;</div>
                             <h2>ĐĂNG NHẬP</h2>
                             {/* <label htmlFor="email">Email:</label> */}
                             <input
-                                
+                                placeholder="Email hoặc số điện thoại đăng nhập"
                                 type="email"
                                 id="email"
                                 name="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                l
+                                
                             />
                             {/* <label htmlFor="password">Mật khẩu:</label> */}
                             <input
+                            placeholder="Mật khẩu"
                                 type="password"
                                 id="password"
                                 name="password"
@@ -173,7 +172,7 @@ const [rememberMe, setRememberMe] = useState(false);
                             <input type="button" value="Đăng Nhập" onClick={handleLogin} />
                             <div className="footer-links">
                                 <a href="#">Bạn chưa có mật khẩu? <span>Đăng ký ngay</span> </a>
-                                <a href="#"><span>Quên mật khẩu?</span></a>
+                                <a href="#" className="footer-links-item"><span>Quên mật khẩu?</span></a>
                                 {/* <hr/>
                                 <span>Đăng nhập với:</span>
                                 <div className="social-login">
@@ -186,62 +185,7 @@ const [rememberMe, setRememberMe] = useState(false);
                 )}
                          </li>
                     
-                            {/* register */}
-                             {isLoginBoxVisible && (
-                    <div id="login-box" className="modal">
-                        <div className="modal-content" ref={loginBoxRef}>
-                            <div className="close" onClick={toggleLoginBox}>&times;</div>
-                            <h2>ĐĂNG NHẬP</h2>
-                            {/* <label htmlFor="email">Email:</label> */}
-                            <input
-                                
-                                type="email"
-                                id="email"
-                                name="email"
-                                        placeholder="Email hoặc số điện thoại đăng nhập"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                l
-                            />
-                            {/* <label htmlFor="password">Mật khẩu:</label> */}
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Mật khẩu"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={rememberMe}
-                                    onChange={() => setRememberMe(!rememberMe)}
-                                />
-                                Ghi nhớ mật khẩu
-                            </label><br /><br />
-                            <input type="button" value="Đăng Nhập" onClick={handleLogin} />
-                            <div className="footer-links">
-                               <span>
-                                Bạn chưa có tài khoản? 
-                               <a href="#" className="footer-links-item">Đăng ký ngay </a>
-                                </span> 
-                              
-                            <span>
-                              <a href="#" className="footer-links-item">Quên mật khẩu?</a>
-                              </span>
-                              
-                                {/* <hr/>
-                                <span>Đăng nhập với:</span>
-                                <div className="social-login">
-                                    <AiOutlineFacebook size={24} onClick={() => console.log("Login with Facebook")} />
-                                    <AiOutlineGoogle size={24} onClick={() => console.log("Login with Google")} />
-                                </div> */}
-                            </div>
-                        </div>
-                    </div>
-                )}
-                    
+         
                      
                      </ul> 
                 </div>
@@ -249,13 +193,13 @@ const [rememberMe, setRememberMe] = useState(false);
          </div>
     </div>
    <div className="container_banner head_bt_bg set_zindex2">
-   <div className="row"> 
-        <div  className="col-xl-3"  >
+   <div className="row-html"> 
+        <div  className="col-xl-3-html"  >
              <div className="header_logo">
                 <img src="https://www.saokim.com.vn/blog/wp-content/uploads/2022/04/logo-moi-cua-starbucks.jpg.webp"/>
              </div>
         </div>
-        <div  className="col-xl-9 "  >
+        <div  className="col-xl-9-html "  >
              <nav className="header_menu">
                 <ul>
                     {

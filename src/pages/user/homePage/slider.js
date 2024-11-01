@@ -52,7 +52,7 @@
     return (
 
       <>
-        <div className="container">
+        <div className="container-big">
         
 
       <div className="slider_show">
@@ -63,11 +63,11 @@
         <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Default/Media/Images/cd4bdcaa-fa00-4c15-95d4-ba98c92e46b0/default_image_cd4bdcaa-fa00-4c15-95d4-ba98c92e46b0_1921-x-641-5-(8)_1727235906520.jpg"></img>
         <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Default/Media/Images/a0e57334-42be-4c8e-8f4a-e6a1f53f675e/default_image_a0e57334-42be-4c8e-8f4a-e6a1f53f675e_microsoftteams-image_1702440197168.png"></img>
         </div>
-        <div className="btns">
-          <div className="btn_left btn" ref={btn_leftRef}>
+        <div className="btns-html">
+          <div className="btn_left btn-html" ref={btn_leftRef}>
           <IoIosArrowBack />
           </div>
-          <div className="btn_right btn" ref={btn_rightRef}>  
+          <div className="btn_right btn-html" ref={btn_rightRef}>  
           <IoIosArrowForward />
           </div>
         </div>

@@ -9,12 +9,12 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 const Footer= () => {
     return (
 
-        <div className="container">
+        <div className="container-big">
        
-    <div className="footer">
+    <div className="footer-html">
     <div className="container_sub">
         <div className="row">
-        <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12"> 
+        <div className="col-lg-3-html col-md-6-html col-sm-6-html col-xs-12-html"> 
         <div className="footer_about">
             <h1 className="footer_about_logo">SWB E-Learning</h1>
             <ul>
@@ -29,7 +29,7 @@ const Footer= () => {
         </div>
             
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div className="col-lg-6-html col-md-6-html col-sm-6-html col-xs-12-html">
             <div className="footer_mid">
                 <h6>
                     THÔNG TIN
@@ -69,7 +69,7 @@ const Footer= () => {
             </div>
         </div>
 
-        <div className="col-lg-3 col-md-12 .col-sm-12 col-xs-12" >
+        <div className="col-lg-3-html col-md-12-html .col-sm-12-html col-xs-12-html" >
         <div className="footer_mid">
                 <h6>
                     LIÊN KẾT

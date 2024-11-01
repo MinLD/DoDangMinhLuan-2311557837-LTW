@@ -1,5 +1,6 @@
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Link } from 'react-router-dom';
+
 import {
     ProSidebar,
     Menu,

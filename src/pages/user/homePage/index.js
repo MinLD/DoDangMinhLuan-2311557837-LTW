@@ -9,8 +9,8 @@ const HomePage = () => {
     <Slider/>
         <section>
         <div className="container_sub">
-        <div className="row section_item">
-        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div className="row-html section_item">
+        <div className="col-lg-6-html col-md-6-html col-sm-6-html col-xs-12-html">
         <div className="hp_about_layout1_img">
 
             
@@ -19,7 +19,7 @@ const HomePage = () => {
         
         </div>
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+        <div className="col-lg-6-html col-md-6-html col-sm-6-html col-xs-12-html"> 
         <div className="hp_about_news">
         <h2>TIN NỔI BẬT</h2>
                   <ul>
@@ -37,7 +37,7 @@ const HomePage = () => {
                     </li>
                     <li>
                           <h6>Tiếp nối thành công của khóa học TOEIC Online 2 kỹ năng Listening & Reading ...</h6>
-                          <p>Tiếp nối thành công của khóa học TOEIC Online 2 kỹ năng Listening & Reading</p>
+                          <p>Tiếp nối thành công của khóa học TOEIC Online...</p>
                     </li>
                   </ul>
                   <ul>
@@ -46,7 +46,7 @@ const HomePage = () => {
                     </li>
                     <li>
                           <h6>Khóa học trực tuyến TOEIC SPEAKING & WRITING ...</h6>
-                          <p>Tiếp nối thành công của lớp học trực tuyến TOEIC Listening & Reading ...</p>
+                          <p>Tiếp nối thành công của lớp h ...</p>
                     </li>
                   </ul>
                   <ul>
@@ -55,7 +55,7 @@ const HomePage = () => {
                     </li>
                     <li>
                           <h6>Lần đầu ra mắt "Bí kíp luyện rộng" TOEFL Primary Online ...</h6>
-                          <p>Nối tiếp thành công các khóa tự học cho bài thi TOEIC ...</p>
+                          <p>Nối tiếp thành công các khóa tự học cho bài th ...</p>
                     </li>
                   </ul>
                   <ul>
@@ -64,7 +64,7 @@ const HomePage = () => {
                     </li>
                     <li>
                           <h6>HỌC TOEIC HĂNG SAY - QUÀ VNPAY TỚI NGAY ...</h6>
-                          <p>Tin vui năm mới, khi nhập mã VNPAYIIG để thanh toán thanh toán   ...</p>
+                          <p>Tin vui năm mới, khi nhập mã VNPAYIIG...</p>
                     </li>
                   </ul>
                   
@@ -83,7 +83,7 @@ const HomePage = () => {
         <div className="container_sub">
             <br/>
             <br/>
-                <div className="title"> <h5>CÔNG CỤ ÔN THI</h5></div>
+                <div className="title-html"> <h5>CÔNG CỤ ÔN THI</h5></div>
               
           </div>
           
@@ -94,7 +94,7 @@ const HomePage = () => {
         <div className="container_sub">
             <br/>
             <br/>
-                <div className="title"> <h5>THI THỬ ONLINE</h5></div>
+                <div className="title-html"> <h5>THI THỬ ONLINE</h5></div>
                 <div className="hp_br_card">
                   <ul>
                     <li>
@@ -128,7 +128,7 @@ const HomePage = () => {
                 </div>
           </div>
           <div className="container_sub"> 
-          <div className="evaluate">
+          <div className="evaluate-html">
 
 <Feel/>
 </div>

@@ -19,7 +19,7 @@ const REVIEW = () => {
     };
 
     return (
-        <div className="container bg_sub">
+        <div className="container-big bg_sub">
             <div className="container_sub">
                 <div className="Regis_Ex">
                     <h1>TIẾNG ANH</h1>

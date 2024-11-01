@@ -7,7 +7,7 @@ const REGISTER_EXAM = () =>{
 
     return (
         <>
-        <div className="container bg_sub" >
+        <div className="container-big bg_sub" >
             <div className="container_sub">
             <div className="Regis_Ex">
             <h1 >

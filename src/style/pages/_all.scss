@@ -2,6 +2,7 @@
 
 @use "sass:map";
 
+@import '~bootstrap/scss/bootstrap';
 @import "theme";
 @import "reponsive";
 
@@ -23,35 +24,35 @@ html,
     margin: auto;
    
 }
-.container{
+.container_big{
    
     max-width: 1512.8px;
    
 
     margin: auto;
 }
-.row{
+.row-html{
     display: flex;
     flex-wrap: wrap; //Chiem tren 1 dong full moi xuong dong
 }
-.col-6{
+.col-6-html{
     flex: 0 0 50%;
     max-width: 50%;
    
 }
-.col-lg-3{
+.col-lg-3-html{
     flex: 0 0 25%;
     max-width: 25%;
    
 }
-.col-lg-6{
+.col-lg-6-html{
     flex: 0 0 50%;
     max-width: 50%;
    
 }
 
 @include Reponsive($SMALL_DEVICE){
-    .col-xs-12 {
+    .col-xs-12-html {
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -67,24 +68,24 @@ html,
 //     }
 // }
 @include Reponsive($desktop){
-    .col-xl-3{
+    .col-xl-3-html{
         flex: 0 0 25%;
         max-width: 25%;
       
     }
-    .col-xl-6{
+    .col-xl-6-html{
         flex: 0 0 50%;
         max-width: 50%;
       
     }
 }
 @include Reponsive($TABLET_DEVICE){
-    .col-md-6{
+    .col-md-6-html{
         flex: 0 0 50%;
         max-width: 50%;
       
     }
-    .col-md-12{
+    .col-md-12-html{
         flex: 0 0 100%;
         max-width: 100%;
       
@@ -92,7 +93,7 @@ html,
 }
 
 @include Reponsive($MEDIUM_DEVICE){
-    .col-lg-3{
+    .col-lg-3-html{
         flex: 0 0 25%;
         max-width: 25%;
       

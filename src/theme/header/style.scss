@@ -6,6 +6,7 @@ label {
     color: white;
 }
 input[type="button"]{
+    margin-top: -50px ;
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -13,15 +14,15 @@ input[type="button"]{
     border-radius: 4px;
     font-size: 15px;
     color: white;
-    background-color:map.get($theme-colors, "head_bt_bg_sub_text" );
+    background-color:#093e71;
 }
 
 input[type="email"],
 input[type="password"]
  {
-    width: 95%;
+    width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 19px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #131212;
@@ -38,13 +39,19 @@ input[type="checkbox"] {
 
 
 .footer-links {
+    justify-content: space-between;
+    .footer-links-item{
+        margin-left: 50px;
+    }
+ 
 span{
     a.footer-links-item{
         text-decoration: none;
         color: map.get($theme-colors , "head_bt_bg_sub_text" );
+       
     }
-    color: rgb(237, 237, 237);
-    margin: 25px;
+    color:#7bbff5;
+
 }
 }
 
@@ -65,7 +72,7 @@ span{
     transform: scale(1.1);
 }
 
-.modal {
+.modal-html {
     display: block; 
     position: fixed; /* Vị trí cố định */
     z-index: 1; /* Đặt lên trên cùng */
@@ -85,24 +92,25 @@ span{
         position: relative; /* Để đặt nút đóng */
         border-radius: 12px;
         h2{
-            padding: 20px;
+            padding-bottom: 25px;
             font-size: 30PX;
-            font-weight: 700;
+            font-weight: 600;
             text-align: center;
-            color: map.get($theme-colors, "head_bt_bg_sub_text" );
+            color: #77b9ec;
         }
-        .close {
+        .close-html {
             cursor: pointer;
             border-radius: 2px;
             text-align: center;
-            width: 25px;
+            width: 35px;
+            height: 32px;
             background-color: #373434;
             color: #aaa;
-            float: right;
-            font-size: 28px;
+            font-size: 25px;
             font-weight: bold;
-            .close:hover,
-            .close:focus {
+            margin-left: 416px;
+            .close-html:hover,
+            .close-html:focus {
                   color: rgb(206, 162, 162);
                  text-decoration: none;
                 cursor: pointer;
@@ -113,58 +121,62 @@ span{
 }
 
 
- .push{
-    margin-top: 106px;
- }
-.set_zindex{
-    position: fixed; 
-    z-index: 9999999999999999999999999999999999999; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
+//  .push{
+//     margin-top: 106px;
+//  }
+// .set_zindex{
+//     position: fixed; 
+//     z-index: 9999999999999999999999999999999999999; 
+//     top: 0; 
+//     left: 0; 
+//     right: 0; 
     
  
-}
+// }
 .Header_top{
     background: map.get($theme-colors , "main" );
-
-     // Padding cho header
+    align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho header
-   // Đặt header ở vị trí cố định
-
-   // Đặt z-index cao để nó nằm trên các phần tử khác
+    justify-content: space-between;
     
 }
 .head_bt_bg{
+    padding: 8px;
 background-color: map.get($theme-colors, "head_bt_bg");
 
 }
+.Header_top ul {
+    justify-content: flex-start;
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .Header_top li {
 
+    margin: 0 10px; 
+  }
+  .Header_top_left,
+.Header_top_right {
+    flex: 1; /* Chiếm bằng nhau */
+}
 .Header_top_left{
-
- 
-    ul{
-        display: flex;
-        align-items: center;
-        list-style: none;
-        column-gap: 20px;
-        align-items: center;
-        padding: 13px 0 13px;
-       
+  
+ul{
+   
+    vertical-align: middle;
+    margin-top: 9px;
+}
         li{
-            margin-left: 2px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 3px;
-            font-size: 14px;
+
             color: map.get($theme-colors, "normal-text" );
-            display: flex;
-            align-content: center;
-            column-gap: 2px;
+
         }
         li:first-child{
             position: relative;
-           
             &::after{
             position: absolute;
             right: -10px;
@@ -179,17 +191,14 @@ background-color: map.get($theme-colors, "head_bt_bg");
     }
   
 
-}
+
 
 .Header_top_right{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  
     ul{
-        
-        display: flex;
-        list-style: none;
+        justify-content: flex-end;
         a{
+            
             display: inline-block;
             color: map.get($theme-colors, "normal-text");
             text-decoration: none;
@@ -204,7 +213,7 @@ button {
     border-radius: 5px; /* Bo góc */
     margin: 2px;
 }
-.register {
+.register-html{
     background-color: #049559; 
 }
             
@@ -215,11 +224,11 @@ button {
 }
 
 
-
+  
 .header_logo{
-    padding: 7px 0 1px;
+  
       img{
-        width: 60px;
+        width: 70px;
         margin: 0px 250px; 
         height: auto;
      
@@ -232,9 +241,13 @@ button {
         padding: 15px 0;
         margin-left: 100px;
         ul{
-            display: flex;
-            justify-content: space-between;
-      
+            justify-items: center;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    vertical-align: middle;
+    margin-top: -6px;
+    margin-left: -118px;      
         Li{
             list-style: none;
             margin: 0px 20px;

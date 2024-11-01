@@ -147,11 +147,11 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
         </li>
       </ul>
       </div>
-      <div className="btns">
-        <div className="btn_left_feel btn" ref={feel_leftRef} onClick={handlePrev}>
+      <div className="btns-html">
+        <div className="btn_left_feel btn-html" ref={feel_leftRef} onClick={handlePrev}>
         <IoIosArrowBack />
         </div>
-        <div className="btn_right_feel btn" ref={feel_rightRef} onClick={handleNext}>  
+        <div className="btn_right_feel btn-html" ref={feel_rightRef} onClick={handleNext}>  
         <IoIosArrowForward />
         </div>
       </div>
