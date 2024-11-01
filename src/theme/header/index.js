@@ -53,7 +53,12 @@ const Header = () => {
             //  }
 
             // ]
-        }
+        },
+        {
+            name: "Admin",
+            path: ROUTERS.USER.admin,
+          
+        },
        
     
 ])

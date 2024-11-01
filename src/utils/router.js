@@ -10,7 +10,7 @@ export const ROUTERS ={
         RegisterExam: "/dang-ky-khoa-hoc",
         TestOnline: "/thi-thu-Online",
         Review: "/on-luyen",
-  
+        admin: "/admins",
      
     },
 };

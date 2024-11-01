@@ -11,6 +11,12 @@ import Register_Exam from "pages/user/Register_Exam";
 import TEST_ONLINE from "pages/user/TEST_ONLINE";
 import TestBank from "pages/user/ExamTools/test bank";
 import CourseOnline from "pages/user/ExamTools/course online";
+import Admin from "pages/admin/Admin";
+import AdminLayout from "theme/masterlayout/AdminLayout";
+import Dashboard from "pages/admin/Content/DashBoard";
+import ManageUser from "pages/admin/Content/ManageUser";
+
+
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -46,9 +52,15 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.courseOnline,
             component: <CourseOnline />
         },
+        {
+            path: ROUTERS.USER.admin,
+            component: <Admin />
+        },
+   
     ];
 
     return (
+        <>
         <Masterlayout>
             <Routes>
                 {userRouters.map((item, key) => (
@@ -58,7 +70,13 @@ const renderUserRouter = () => {
                 <Route path="/introduce" element={<AboutIntroduce />} />
                 <Route path="/test_online" element={<TEST_ONLINE />} />
                 <Route path="/register_exam" element={<Register_Exam />} />
-
+               
+               
+                <Route path="admins" element={<Admin />}>
+                <Route index element={<Dashboard />} />
+                <Route path="manage-users" element={<ManageUser />} />
+                
+                </Route>
 
                 {/* Định nghĩa route con cho Review */}
                 <Route path={ROUTERS.USER.Review} element={<Review />}>
@@ -68,7 +86,12 @@ const renderUserRouter = () => {
                 </Route>
                 <Route path="/" element={<Navigate to={ROUTERS.USER.HOME} />} />
             </Routes>
+            
         </Masterlayout>
+        
+          
+
+        </>
     );
 };
 

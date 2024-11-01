@@ -1,6 +1,7 @@
 import { memo } from "react";
 import Footer from "../footer";
 import Header from "../header";
+
 const MasterLayout= ({children, ...props}) => {
     return (
     <div {...props}>
@@ -11,3 +12,5 @@ const MasterLayout= ({children, ...props}) => {
     )
 }
 export default memo(MasterLayout);
+
+
