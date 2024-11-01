@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const ManageUser = (props)=> {
+const ModalCreteUser = (props)=> {
 
 
     const [show, setShow] = useState(false);
@@ -30,14 +30,10 @@ const ManageUser = (props)=> {
             <div >
    
             <Button variant="primary" onClick={handleShow}>
-        Đăng ký tài khoản
+        Launch demo modal
       </Button>
 
-      <Modal 
-      show={show} 
-      onHide={handleClose}
-      size ="xl"
-      backdrop="static">
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -68,8 +64,8 @@ const ManageUser = (props)=> {
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose...">
             <option>User</option>
-            <option>Giáo viên</option>
-            <option>Sale</option>
+            <option>...</option>
+            <option>...</option>
             <option>...</option>
             <option>...</option>
           </Form.Select>
@@ -78,17 +74,11 @@ const ManageUser = (props)=> {
       </Row>
       <Row className="mb-3">
       <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Update filr images</Form.Label>
+        <Form.Label>Default file input example</Form.Label>
         <Form.Control type="file" />
       </Form.Group>
     </Row>
-    <Row className="mb-3">
-      <Form.Group controlId="formFile" className="mb-3">
-        
-        <Form.Label>đfdfdf</Form.Label>
-       
-      </Form.Group>
-    </Row>
+   
 
     </Form>
 
@@ -111,4 +101,4 @@ const ManageUser = (props)=> {
         </div>
     )
 }
-export default ManageUser;
+export default ModalCreteUser;
