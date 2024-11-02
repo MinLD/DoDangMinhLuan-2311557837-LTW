@@ -33,7 +33,23 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
+                           </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="Regis_Ex-List_card">
+                           
+                           <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Course/Media/Images/49891b8d-e026-4093-be5c-6ec141c934fd/image_49891b8d-e026-4093-be5c-6ec141c934fd_sw-1_small_1727939326469.png"/>
+                           <span  className="Regis_Ex-List_card_item">
+                           <h5>TOEIC Speaking & Writing Level 1</h5>
+                           <span className="Rating"><span><FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /></span> 5 (100tr)</span>
+                           <span className="monney_container">
+                           <span className="monney_left">2.830.000đ</span>
+                           <span className="monney_right">1.990.000đ</span>
+                           </span >
+                        
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -49,23 +65,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
-                           </span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="Regis_Ex-List_card">
-                           
-                           <img src="https://han01.vstorage.vngcloud.vn/v1/AUTH_6831ce3c90cd4f47a8ca18d6545cddf9/public/Course/Media/Images/49891b8d-e026-4093-be5c-6ec141c934fd/image_49891b8d-e026-4093-be5c-6ec141c934fd_sw-1_small_1727939326469.png"/>
-                           <span  className="Regis_Ex-List_card_item">
-                           <h5>TOEIC Speaking & Writing Level 1</h5>
-                           <span className="Rating"><span><FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /></span> 5 (100tr)</span>
-                           <span className="monney_container">
-                           <span className="monney_left">2.830.000đ</span>
-                           <span className="monney_right">1.990.000đ</span>
-                           </span>
-                        
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -81,7 +81,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -99,7 +99,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -115,7 +115,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -131,7 +131,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card"> xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -147,7 +147,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -168,7 +168,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -184,7 +184,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -200,7 +200,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -216,7 +216,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -238,7 +238,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -254,7 +254,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -291,7 +291,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -307,7 +307,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -323,7 +323,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -339,7 +339,7 @@ return(
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -357,7 +357,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -373,7 +373,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -389,7 +389,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -405,7 +405,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -426,7 +426,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -442,7 +442,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -458,7 +458,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -474,7 +474,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -496,7 +496,7 @@ return(
                                    <span className="monney_right">1.179.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>
@@ -512,7 +512,7 @@ return(
                                    <span className="monney_right">490.000đ</span>
                                    </span>
                                 
-                                   <button>xem chi tiết</button>
+                                   <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                                    </span>
                                 </div>
                             </li>

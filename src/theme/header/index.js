@@ -144,6 +144,7 @@ const [rememberMe, setRememberMe] = useState(false);
                             <h2>ĐĂNG NHẬP</h2>
                             {/* <label htmlFor="email">Email:</label> */}
                             <input
+                            className="input-login"
                                 placeholder="Email hoặc số điện thoại đăng nhập"
                                 type="email"
                                 id="email"
@@ -154,6 +155,7 @@ const [rememberMe, setRememberMe] = useState(false);
                             />
                             {/* <label htmlFor="password">Mật khẩu:</label> */}
                             <input
+                            className="input-login"
                             placeholder="Mật khẩu"
                                 type="password"
                                 id="password"

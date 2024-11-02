@@ -32,7 +32,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">1.990.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                      
@@ -48,7 +48,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_left">2.830.000đ</span>
                            <span className="monney_right">1.990.000đ</span>
                            </span>
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li> 
@@ -69,7 +69,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">1.179.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -85,7 +85,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">1.179.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -101,7 +101,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">490.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -122,7 +122,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">659.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card">xem chi tiết</button>
                            </span>
                         </div>
                     </li>
@@ -138,7 +138,7 @@ const REGISTER_EXAM = () =>{
                            <span className="monney_right">659.000đ</span>
                            </span>
                         
-                           <button>xem chi tiết</button>
+                           <button className="Regis_Ex-List_card_item-bttn-card"> xem chi tiết</button>
                            </span>
                         </div>
                     </li> 

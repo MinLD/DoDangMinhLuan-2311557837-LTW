@@ -17,8 +17,8 @@ input[type="button"]{
     background-color:#093e71;
 }
 
-input[type="email"],
-input[type="password"]
+.input-login[type="email"],
+.input-login[type="password"]
  {
     width: 100%;
     padding: 10px;
@@ -166,7 +166,7 @@ background-color: map.get($theme-colors, "head_bt_bg");
 .Header_top_left{
   
 ul{
-   
+   justify-content: flex-start;
     vertical-align: middle;
     margin-top: 9px;
 }

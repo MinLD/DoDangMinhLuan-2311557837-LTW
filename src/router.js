@@ -78,7 +78,7 @@ const renderUserRouter = () => {
                 
                 </Route>
 
-                {/* Định nghĩa route con cho Review */}
+                
                 <Route path={ROUTERS.USER.Review} element={<Review />}>
                 <Route index element={<TestBank />} />
                 <Route path="testbank" element={<TestBank/>} />

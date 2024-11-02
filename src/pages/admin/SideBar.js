@@ -12,7 +12,8 @@ import {
   } from 'react-pro-sidebar';
   import { RiAdminFill } from "react-icons/ri";
   import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
-  import sidebarBg from '../../assets/bg2.jpg';
+  import sidebarBg from '../../assets/bg-admin.jpg';
+  import bgsidebar from '../../assets/lg.jpg';
 import { MdDashboard } from 'react-icons/md';
 const SideBar = (props) =>{
     const { image, collapsed, toggled, handleToggleSidebar } =props
