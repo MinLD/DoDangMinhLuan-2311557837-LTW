@@ -3,7 +3,7 @@
     display: flex;
     .admin-sidebar{
         .pro-sidebar{
-            height: 100vh!important;
+            height: 100%!important;
         }
     }
 
@@ -16,7 +16,7 @@
         border: 2px solid green 
     }
     .admin-main{
-        border: 1px solid red
+     
     }
 }
 .admin-container{

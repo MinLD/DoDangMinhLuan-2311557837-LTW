@@ -1,6 +1,3 @@
-
-
-
 export const ROUTERS ={
     USER : {
         HOME : "/Trang-chu",

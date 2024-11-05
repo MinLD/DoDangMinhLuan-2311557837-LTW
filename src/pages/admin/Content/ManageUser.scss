@@ -1,6 +1,19 @@
-.manage-user-container{
+.manage-users-container{
+    padding: 10px;
+    .manage-title{
+        font-weight: 600px;
+        font-size: 20px;
+        
+       }
 .users-content{
-   
+.btn-add-new{
+    margin: 15px 0px;
+    button{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+}
 }
 }
 

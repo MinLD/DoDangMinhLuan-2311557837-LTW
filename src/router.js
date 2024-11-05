@@ -15,9 +15,6 @@ import Admin from "pages/admin/Admin";
 import AdminLayout from "theme/masterlayout/AdminLayout";
 import Dashboard from "pages/admin/Content/DashBoard";
 import ManageUser from "pages/admin/Content/ManageUser";
-
-
-
 const renderUserRouter = () => {
     const userRouters = [
         {
@@ -56,10 +53,8 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.admin,
             component: <Admin />
         },
-   
     ];
-
-    return (
+ return (
         <>
         <Masterlayout>
             <Routes>
@@ -88,10 +83,7 @@ const renderUserRouter = () => {
             </Routes>
             
         </Masterlayout>
-        
-          
-
-        </>
+     </>
     );
 };
 
