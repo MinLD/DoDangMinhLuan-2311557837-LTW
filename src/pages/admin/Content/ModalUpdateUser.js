@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ManageUser.scss';
 import { FcPlus } from "react-icons/fc";
 import { toast } from 'react-toastify';
+import { putUpdateUser } from 'Services/apiservices';
+import _ from 'lodash';
+const ModalUpdateUser = (props)=> {
+    const {show,setShow,dataUpdate,fetchListUsers} =props;
 
-import { postCreateUser } from 'Services/apiservices';
-const ModalCeateUser = (props)=> {
-    const {show,setShow,fetchListUsers} =props;
     const handleClose = () => {
       setShow(false)
       setEmail("");
@@ -16,6 +17,7 @@ const ModalCeateUser = (props)=> {
       setImages("");
       setRole("USER");
       setPreviewImages("");
+      props.resetUpdate();
     };
     const handleShow = () => setShow(true);
     const [email,setEmail]=useState("");
@@ -24,7 +26,19 @@ const ModalCeateUser = (props)=> {
     const [image,setImages]=useState("");
     const [role,setRole]=useState("USER");
     const [PreviewImages,setPreviewImages] =useState("");
+    useEffect(()=>{
+        console.log('check useEffect',dataUpdate)
+    
+    if(!_.isEmpty(dataUpdate)){
+        setEmail(dataUpdate.email);
+        setPassword(dataUpdate.password);
+        setUsername(dataUpdate.username);
+        setImages("");
+        setRole(dataUpdate.role);
+        if(dataUpdate.image){setPreviewImages(`data:image/jpeg;base64,${dataUpdate.image}`)}
 
+    }
+    },[dataUpdate]);
     const handleUploadImages =(event)=>{
       if(event.target && event.target.files && event.target.files[0]){
         setPreviewImages(URL.createObjectURL(event.target.files[0]))
@@ -47,31 +61,24 @@ const ModalCeateUser = (props)=> {
       toast.error('Vui lòng nhập Email')
         return;
       }
-      else if(!password){
-        toast.error('Vui lòng nhập Password')
-        return ;
-      }
-      else if(!username){
-        toast.error('Vui lòng nhập tên đăng nhập')
 
-        return;
-      }
 
     //submit data
      
-         let data = await  postCreateUser(email,password,username,role, image)
-
+         let data = await putUpdateUser(dataUpdate.id,username,role, image)
         if(data && data.EC ===0){
           toast.success(data.EM );
           handleClose();
           await props.fetchListUsers();
 
-        }else{
+        }
+        if(data && data.EC !==0){
           toast.error(data.EM)
         }
     }
-      
     
+      
+    console.log('check data', dataUpdate)
     return (
   <>
             {/* <Button variant="primary" onClick={handleShow}>
@@ -93,6 +100,7 @@ const ModalCeateUser = (props)=> {
     <label className="form-label">Email</label>
     <input type="email" className="form-control"
      value={email}
+     disabled={true}
      onChange={(event)=>setEmail(event.target.value)}
      />
   </div>
@@ -100,7 +108,9 @@ const ModalCeateUser = (props)=> {
     <label className="form-label">Password</label>
     <input type="password" className="form-control" 
     onChange={(event)=>setPassword(event.target.value)}
+    disabled={true}
     value={password}/>
+    
   </div>
 
   <div className="col-md-6">
@@ -111,7 +121,7 @@ const ModalCeateUser = (props)=> {
   </div>
   <div className="col-md-4">
     <label  className="form-label">Role </label>
-    <select  className="form-select" onChange={(event)=>setRole(event.target.value)}>
+    <select  className="form-select" onChange={(event)=>setRole(event.target.value)} value={role}>
       <option value="USER">User</option>
       <option value="ADMIN">Admin</option>
     </select>
@@ -147,4 +157,4 @@ const ModalCeateUser = (props)=> {
       </>
     )
 }
-export default ModalCeateUser;
+export default ModalUpdateUser;
