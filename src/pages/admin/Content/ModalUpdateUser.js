@@ -27,7 +27,7 @@ const ModalUpdateUser = (props)=> {
     const [role,setRole]=useState("USER");
     const [PreviewImages,setPreviewImages] =useState("");
     useEffect(()=>{
-        console.log('check useEffect',dataUpdate)
+   
     
     if(!_.isEmpty(dataUpdate)){
         setEmail(dataUpdate.email);
@@ -65,12 +65,13 @@ const ModalUpdateUser = (props)=> {
 
     //submit data
      
-         let data = await putUpdateUser(dataUpdate.id,username,role, image)
+         let data = await putUpdateUser(dataUpdate.id,username,role, image,password)
         if(data && data.EC ===0){
           toast.success(data.EM );
           handleClose();
-          await props.fetchListUsers();
-
+          // await props.fetchListUsers();
+          // props. setCurrentPage(1);
+          await props.fetchlistUsersWithPaginate(props.currentPage);
         }
         if(data && data.EC !==0){
           toast.error(data.EM)
@@ -78,7 +79,7 @@ const ModalUpdateUser = (props)=> {
     }
     
       
-    console.log('check data', dataUpdate)
+
     return (
   <>
             {/* <Button variant="primary" onClick={handleShow}>
@@ -108,7 +109,7 @@ const ModalUpdateUser = (props)=> {
     <label className="form-label">Password</label>
     <input type="password" className="form-control" 
     onChange={(event)=>setPassword(event.target.value)}
-    disabled={true}
+  
     value={password}/>
     
   </div>
