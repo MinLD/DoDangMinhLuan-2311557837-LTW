@@ -15,6 +15,12 @@ import Admin from "pages/admin/Admin";
 import AdminLayout from "theme/masterlayout/AdminLayout";
 import Dashboard from "pages/admin/Content/DashBoard";
 import ManageUser from "pages/admin/Content/ManageUser";
+import Login from "pages/auth/Login";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const renderUserRouter = () => {
     const userRouters = [
         {
@@ -70,7 +76,6 @@ const renderUserRouter = () => {
                 <Route path="admins" element={<Admin />}>
                 <Route index element={<Dashboard />} />
                 <Route path="manage-users" element={<ManageUser />} />
-                
                 </Route>
 
                 
@@ -79,9 +84,27 @@ const renderUserRouter = () => {
                 <Route path="testbank" element={<TestBank/>} />
                 <Route path="courseOnline" element={<CourseOnline />} />
                 </Route>
+
+
+
+
+
                 <Route path="/" element={<Navigate to={ROUTERS.USER.HOME} />} />
+
+
+
             </Routes>
-            
+            <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
         </Masterlayout>
      </>
     );

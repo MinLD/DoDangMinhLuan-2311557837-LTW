@@ -3,8 +3,12 @@ import './style.scss';
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { ROUTERS } from "utils/router";
+import { postLoin } from "Services/apiservices";
+import { Await } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
-    
+    const navigate=useNavigate();
    const [menus] = useState([
     {
         name: "Trang chủ",
@@ -65,15 +69,15 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [rememberMe, setRememberMe] = useState(false);
 
-
-    
     const [isLoginBoxVisible, setLoginBoxVisible] = useState(false);
     const loginBoxRef = useRef(null); // Tham chiếu đến khung đăng nhập
-
     const toggleLoginBox = () => {
         setLoginBoxVisible(!isLoginBoxVisible);
     };
-
+        const [isRegisBoxVisible, SetRegisBoxVisible] = useState(false);
+const toggleRegisBox=()=>{
+    SetRegisBoxVisible(!isRegisBoxVisible);
+}
     // Hàm để đóng khung đăng nhập khi nhấn ra ngoài
     const handleClickOutside = (event) => {
         if (loginBoxRef.current && !loginBoxRef.current.contains(event.target)) {
@@ -89,17 +93,25 @@ const [rememberMe, setRememberMe] = useState(false);
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-    const handleLogin = () => {
-        // Logic xử lý đăng nhập
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("Remember Me:", rememberMe);
-        // Reset form sau khi đăng nhập
-        setEmail("");
-        setPassword("");
-        setRememberMe(false);
-    };
+ 
+const handleLogin =async()=>{
+    //validate
 
+
+    //submit apis
+    let data = await postLoin(email,password)
+    if(data && data.EC ===0){
+        console.log(data)
+        toast.success(data.EM );
+        navigate('/Trang-chu')
+        setLoginBoxVisible(false);
+
+      }else{
+      
+        toast.error(data.EM)
+        console.log(data)
+      }
+}
     return (
         <>
          <div className="container-big set_zindex" >
@@ -129,7 +141,7 @@ const [rememberMe, setRememberMe] = useState(false);
                               
                             
                              </a>
-                             <a href="#" onClick={toggleLoginBox}>
+                             <a href="#" onClick={toggleRegisBox}>
                                           <span className="login">
                                               <button className="register-html"> Đăng ký</button>
                                           </span>
@@ -150,7 +162,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                 id="email"
                                 name="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(event) => setEmail(event.target.value)}
                                 
                             />
                             {/* <label htmlFor="password">Mật khẩu:</label> */}
@@ -161,7 +173,7 @@ const [rememberMe, setRememberMe] = useState(false);
                                 id="password"
                                 name="password"
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(event) => setPassword(event.target.value)}
                             />
                             <label>
                                 <input
@@ -171,16 +183,65 @@ const [rememberMe, setRememberMe] = useState(false);
                                 />
                                 Ghi nhớ mật khẩu
                             </label><br /><br />
-                            <input type="button" value="Đăng Nhập" onClick={handleLogin} />
+                            <input type="button" value="Đăng Nhập" onClick={()=> handleLogin()} />
                             <div className="footer-links">
                                 <a href="#">Bạn chưa có mật khẩu? <span>Đăng ký ngay</span> </a>
                                 <a href="#" className="footer-links-item"><span>Quên mật khẩu?</span></a>
-                                {/* <hr/>
-                                <span>Đăng nhập với:</span>
-                                <div className="social-login">
-                                    <AiOutlineFacebook size={24} onClick={() => console.log("Login with Facebook")} />
-                                    <AiOutlineGoogle size={24} onClick={() => console.log("Login with Google")} />
-                                </div> */}
+                            </div>
+                        </div>
+                    </div>
+                )}
+{/* //đăng ký */}
+{isRegisBoxVisible && (
+                    <div id="login-box" className="modal-html">
+                        <div className="modal-content" ref={loginBoxRef}>
+                            <div className="close-html" onClick={toggleRegisBox}>&times;</div>
+                            <h2>ĐĂNG KÝ</h2>
+                            <input
+                            className="input-login"
+                                placeholder="Họ và tên"
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                
+                            />
+                            <input
+                            className="input-login"
+                                placeholder="Email hoặc số điện thoại đăng nhập"
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                
+                            />
+
+                            <input
+                            className="input-login"
+                            placeholder="Mật khẩu"
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
+                                  <input
+                            className="input-login"
+                            placeholder="Nhập lại mật khẩu"
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
+                            
+                         <br /><br />
+                            <input type="button" value="Đăng ký " onClick={()=> handleLogin()} />
+                            <div className="footer-links">
+                                <a href="#">Bạn đã có tài khoản? <span>Đăng nhập ngay</span> </a>
+                    
                             </div>
                         </div>
                     </div>
