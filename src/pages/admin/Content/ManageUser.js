@@ -2,7 +2,6 @@ import ModalCeateUser from "./ModalCreateUser";
 import './ManageUser.scss';
 import { FcPlus } from "react-icons/fc";
 import { useEffect, useState } from "react";
-import TableUser from "./TableUser";
 import axios from "axios";
 import { getAllUsers,getUserWithPaginate } from "Services/apiservices";
 import ModalUpdateUser from "./ModalUpdateUser";

@@ -13,17 +13,6 @@ const Header = () => {
     {
         name: "Trang chủ",
         path: ROUTERS.USER.HOME,
-        // isShowSubmenu: false,
-        // child : [
-        //  {
-        //     name: "Giới thiệu",
-        //     path: ROUTERS.USER.INTRODUCE
-        // },
-        // {
-        //     name: "Tin tức",
-        //     path: ROUTERS.USER.NEWS
-        // },
-        // ]
     },
         {
         name: "Khóa tự học",
@@ -43,18 +32,6 @@ const Header = () => {
         {
             name: "Tin tức",
             path: ROUTERS.USER.NEWS,
-            // isShowSubmenu: false,
-            // child : [
-            //  {
-            //     name: "Thông tin liên hệ",
-            // path: ""},
-             
-            //  {
-            //     name: "Hỏi đáp",
-            // path: ""
-            //  }
-
-            // ]
         },
         {
             name: "Admin",
@@ -115,10 +92,10 @@ const handleLogin =async()=>{
     return (
         <>
          <div className="container-big set_zindex" >
- <div className="Header_top">
+ <div className="header_top">
     <div className="container_sub">
             <div className="row-html">
-                <div className="col-6-html Header_top_left">
+                <div className="col-6-html header_top_left">
                     <ul>
                         <li>
                             
@@ -129,7 +106,7 @@ const handleLogin =async()=>{
                         </li>
                     </ul>
                 </div>
-                <div className="col-6-html Header_top_right">
+                <div className="col-6-html header_top_right">
                      <ul>
                          <li> 
                          <a href="#" onClick={toggleLoginBox}>
@@ -269,30 +246,16 @@ const handleLogin =async()=>{
                     menus?.map((menu , menuKey)=>(
                           <li key={menuKey} className={menuKey == 0 ? "active" : ""}> 
                           <a href={menu?.path}> {menu?.name}</a>
-                          {
-                            menu.child && (
-                                <ul className="header_menu_dropdown"> 
-                                {menu.child.map((childItem,childkey)=>(
-                                     <li key={`${childkey}-${childkey}`}>
-                                     <a href={childItem.path}>{childItem.name}</a>
-                                 </li>
-                                ))}
-                                   
-                                </ul>
-                            )
-                          }
                         </li>
                     ))}
         
                 </ul>
-
              </nav>
         </div>
         </div>
     </div>
    </div>
    <div className="push"></div> 
-    
         </>
    
     )

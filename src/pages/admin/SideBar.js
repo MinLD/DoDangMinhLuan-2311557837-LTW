@@ -21,7 +21,6 @@ const SideBar = (props) =>{
         <>
     <ProSidebar
       image= {sidebarBg}
-
       collapsed={collapsed}
       toggled={toggled}
       breakPoint="md"

@@ -133,7 +133,7 @@ span{
     
  
 // }
-.Header_top{
+.header_top{
     background: map.get($theme-colors , "main" );
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho header
@@ -145,7 +145,7 @@ span{
 background-color: map.get($theme-colors, "head_bt_bg");
 
 }
-.Header_top ul {
+.header_top ul {
     justify-content: flex-start;
     list-style: none;
     padding: 6px;
@@ -155,15 +155,15 @@ background-color: map.get($theme-colors, "head_bt_bg");
     flex-wrap: wrap;
   }
   
-  .Header_top li {
+  .header_top li {
 
     margin: 0 10px; 
   }
-  .Header_top_left,
-.Header_top_right {
+  .header_top_left,
+.header_top_right {
     flex: 1; /* Chiếm bằng nhau */
 }
-.Header_top_left{
+.header_top_left{
   
 ul{
    justify-content: flex-start;
@@ -193,7 +193,7 @@ ul{
 
 
 
-.Header_top_right{
+.header_top_right{
   
     ul{
         justify-content: flex-end;

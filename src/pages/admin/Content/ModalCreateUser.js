@@ -87,7 +87,7 @@ const ModalCeateUser = (props)=> {
       size ="xl"
       backdrop="static">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Tạo tài khoản</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <form className="row g-3">
