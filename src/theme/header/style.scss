@@ -1,5 +1,14 @@
 @use "sass:map";
 @import "style/pages/all";
+.pass-group{
+position: relative;
+.eye-password{
+    position: absolute;
+    right: 11px;
+    bottom: 31px;
+    color: white;
+}
+}
 label {
     display: block;
     margin-bottom: 5px;
@@ -15,10 +24,17 @@ input[type="button"]{
     font-size: 15px;
     color: white;
     background-color:#093e71;
+    &:disabled{
+        background-color: #aaa;
+        color: #ccc;
+        cursor: no-drop;
+    }
 }
 
 .input-login[type="email"],
-.input-login[type="password"]
+.input-login[id="password"],
+.input-login[type="username"],
+.input-login[id="passwordrl"]
  {
     width: 100%;
     padding: 10px;
@@ -138,7 +154,7 @@ span{
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho header
     justify-content: space-between;
-    
+    padding: 10px;
 }
 .head_bt_bg{
     padding: 8px;
@@ -148,7 +164,7 @@ background-color: map.get($theme-colors, "head_bt_bg");
 .header_top ul {
     justify-content: flex-start;
     list-style: none;
-    padding: 6px;
+ 
     margin: 0;
     display: flex;
     justify-content: center;
@@ -159,16 +175,12 @@ background-color: map.get($theme-colors, "head_bt_bg");
 
     margin: 0 10px; 
   }
-  .header_top_left,
-.header_top_right {
-    flex: 1; /* Chiếm bằng nhau */
-}
+
 .header_top_left{
-  
+display: flex;
+align-items: center;
 ul{
    justify-content: flex-start;
-    vertical-align: middle;
-    margin-top: 9px;
 }
         li{
 
@@ -189,15 +201,78 @@ ul{
             }
         }
     }
-  
+    .login-button{
+        position: relative;
+     
+    }
+    .loader-Icon{
+        animation: spin 1s infinite linear;
+        position: absolute;
+        top: 9%;
+        left: 37%;
+      
+    }
+    
+    @keyframes spin {
+        from {
+            transform: scale(1) rotate(0deg);
+        }
+        to {
+            transform: scale(1) rotate(360deg);
+        }
+    }
 
+.noti_item1{
+    .noti_item1_text{
+        justify-content: center;
+    display: flex;
+    margin-top: 36px;
+    color: #f42323;
+    }
+    .noti_item1_textLink{
+        font-size: 15px;
+        float: right;
+        text-decoration: none;
+    }
+    .noti_item1_textLink:hover{
+        text-decoration: underline;
+    }
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+    font-size: 20px;
+    color: #131212;
+    background-color: #ffffff;
+    width: 340px;
+    height: 545px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
 
+.api_user_noti{ 
 
+   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-left: -115px;
+
+    display: flex;
+    gap: 13px;
+    .span{
+        font-weight: bold;
+    }
+}
 .header_top_right{
   
     ul{
         justify-content: flex-end;
-        a{
+        span{
             
             display: inline-block;
             color: map.get($theme-colors, "normal-text");
@@ -214,12 +289,16 @@ button {
     margin: 2px;
 }
 .register-html{
-    background-color: #049559; 
+    background-color: #498139; 
 }
             
 
 
             }
+        }
+
+        .login-now{
+            color: #3294f4;
         }
 }
 

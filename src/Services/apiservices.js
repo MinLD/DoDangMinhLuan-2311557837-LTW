@@ -1,4 +1,4 @@
-        import Password from "antd/es/input/Password";
+
 import axios from "../utils/axiosCustomize";
         const postCreateUser=(email,password,username,role,image)=>{
             const data = new FormData();
@@ -36,6 +36,15 @@ import axios from "../utils/axiosCustomize";
                 }
         const postLoin=(userEmail,userPassword)=> {
             return axios.post(`api/v1/login`, 
-                {email: userEmail, password: userPassword});
+                {
+                email: userEmail, 
+                password: userPassword,
+                delay : 1000
+
+                });
         } 
-        export {postCreateUser,getAllUsers,putUpdateUser,putViewUser,deleteUsers,getUserWithPaginate, postLoin};
+        const postRegister=(userEmail,userPassword,userName)=> {
+            return axios.post(`api/v1/register`, 
+                {email: userEmail, password: userPassword,username : userName});
+        } 
+        export {postCreateUser,getAllUsers,putUpdateUser,putViewUser,deleteUsers,getUserWithPaginate, postLoin, postRegister};

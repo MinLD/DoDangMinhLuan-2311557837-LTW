@@ -27,18 +27,15 @@ const ModalUpdateUser = (props)=> {
     const [role,setRole]=useState("USER");
     const [PreviewImages,setPreviewImages] =useState("");
     useEffect(()=>{
-   
-    
-    if(!_.isEmpty(dataUpdate)){
+    if(!_.isEmpty(dataUpdate)){// "_. Kí hiệu lodash"_.isEmpty(...) hàm này của thư viện lodash kiểm tra xem 1 obj có rỗng hay không
         setEmail(dataUpdate.email);
         setPassword(dataUpdate.password);
         setUsername(dataUpdate.username);
         setImages("");
         setRole(dataUpdate.role);
         if(dataUpdate.image){setPreviewImages(`data:image/jpeg;base64,${dataUpdate.image}`)}
-
     }
-    },[dataUpdate]);
+    },[dataUpdate]);//Đảm bảo rằng khi dataUpdate thay đổi thì hàm này sẽ chạy
     const handleUploadImages =(event)=>{
       if(event.target && event.target.files && event.target.files[0]){
         setPreviewImages(URL.createObjectURL(event.target.files[0]))

@@ -23,6 +23,7 @@ const TableUserPaginate =(props) => {
         {listUsers && listUsers.length > 0 && 
         listUsers.map((item,index)=>{
             return(
+         
                 <tr key={`table-users-${index}`}>
                 <td>{item.id}</td>
                 <td>{item.username}</td>

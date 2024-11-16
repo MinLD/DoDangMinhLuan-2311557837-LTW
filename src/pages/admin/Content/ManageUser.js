@@ -8,7 +8,6 @@ import ModalUpdateUser from "./ModalUpdateUser";
 import ModalViewUser from "./ModalViewUser";
 import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPaginate from "./TableUserpaginate";
-
       const ManageUser = (props)=> {   
         const LIMIT_USER = 5 ;
         const [pageCount,setpageCount]=useState(0);
@@ -26,8 +25,7 @@ import TableUserPaginate from "./TableUserpaginate";
         fetchlistUsersWithPaginate(1);
         },[]);
         const fetchlistUsers = async() =>{
-        let res = await getAllUsers()
-
+        let res = await getAllUsers();
         if (res.EC === 0 ){
             setListUsers(res.DT)
         }
@@ -44,7 +42,7 @@ import TableUserPaginate from "./TableUserpaginate";
             }  
         const handleClickBtnUpdateUser=(user)=>{
             setShowModalUpdateUser(true);
-            setDataUpdate(user)
+            setDataUpdate(user)// Truyền data từ listuser vào DataUpdate
         
   
         }
@@ -55,14 +53,13 @@ import TableUserPaginate from "./TableUserpaginate";
   
         }
         const handleClickBtnDeleteUser=(user) => {
-            console.log('dataa',user)
             setShowModalDeleteUser(true);
             setDataDelete(user);
 
         }
         const resetUpdate=()=>{
             setDataUpdate({});
-        }
+        }//reset lai data khi nguoi dung click lai update
         return (
               <div className="manage-users-container">
                   <div className="manage-title">
@@ -96,7 +93,7 @@ import TableUserPaginate from "./TableUserpaginate";
                   fetchListUsers ={fetchlistUsers}
                   fetchlistUsersWithPaginate ={fetchlistUsersWithPaginate }
                   currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
+                setCurrentPage={setCurrentPage}
                   />
                     <ModalUpdateUser 
                   show={ShowModalUpdateUser}
