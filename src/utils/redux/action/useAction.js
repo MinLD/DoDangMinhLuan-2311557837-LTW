@@ -5,3 +5,7 @@ export const doLogin= (data)=> {
         payload: data
     }
 }
+export const FETCH_USER_LOGOUT = 'FETCH_USER_LOGOUT';
+export const userLogout = () => ({
+    type: FETCH_USER_LOGOUT,
+});

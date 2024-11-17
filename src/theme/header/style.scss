@@ -157,8 +157,8 @@ span{
     padding: 10px;
 }
 .head_bt_bg{
-    padding: 8px;
-background-color: map.get($theme-colors, "head_bt_bg");
+    padding: 5px;
+    background-color: map.get($theme-colors, "head_bt_bg");
 
 }
 .header_top ul {
@@ -171,12 +171,17 @@ background-color: map.get($theme-colors, "head_bt_bg");
     flex-wrap: wrap;
   }
   
-  .header_top li {
-
-    margin: 0 10px; 
+  .header_top_left li {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    .span{
+        
+    }
+    margin: 0 85px; 
   }
 
-.header_top_left{
+.header_top_left {
 display: flex;
 align-items: center;
 ul{
@@ -187,19 +192,7 @@ ul{
             color: map.get($theme-colors, "normal-text" );
 
         }
-        li:first-child{
-            position: relative;
-            &::after{
-            position: absolute;
-            right: -10px;
-            top:1px;
-            height: 20px;
-            width: 1px;
-            background: rgb(0, 0, 0);
-            opacity: 0,1;
-            content: "";
-            }
-        }
+   
     }
     .login-button{
         position: relative;
@@ -309,77 +302,55 @@ button {
       img{
         width: 70px;
         margin: 0px 250px; 
-        height: auto;
-     
+       
       }
         
         color: map.get($theme-colors,"head_bt_bg_text");
     }
-    .header_menu{
+    .header_menu {
         cursor: pointer;
-        padding: 15px 0;
-        margin-left: 100px;
-        ul{
-            justify-items: center;
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    vertical-align: middle;
-    margin-top: -6px;
-    margin-left: -118px;      
-        Li{
-            list-style: none;
-            margin: 0px 20px;
-            position: relative;
-            a:hover{
-                color: map.get($theme-colors ,"head_bt_bg_sub_text"  );
-            }
-            a{
-                text-decoration: none;
-                color: map.get($theme-colors,"head_bt_bg_text");
-                letter-spacing: 2px;
-                transform: all 0.3s;
-                padding: 5px 0;
-                display: block;
-                font-size: 14px;
+        display: flex; 
+        justify-content: center; 
+        ul {
+            display: flex; 
+            align-items: center; 
+            padding: 0;
+            margin: 0; 
+            li {
+                list-style: none;
+                margin: 0 20px; 
+        
+                a:hover {
+                    color: map.get($theme-colors, "head_bt_bg_sub_text");
+                }
+                a {
+                    text-decoration: none;
+                    color: map.get($theme-colors, "head_bt_bg_text");
+                    letter-spacing: 2px;
+                    transform: all 0.3s;
+                    padding: 5px 0;
+                    display: block;
+                    font-size: 14px;
+                }
             }
         }
-        li:hover .header_menu_dropdown{
-            opacity: 1;
-            visibility: visible;
-          
-        }
-            // .active a{
-            //     // color: map.get($theme-colors , "main" );
-                
-              
-            // }
-            .header_menu_dropdown{
-                background-color: map.get($theme-colors, "head_bt_bg" );
-                display: block;
-                position: absolute;
-                width: 220px;
-                z-index: 9;
-                padding: 5px 0;
-                transition: all, 0.1s;
-                opacity: 100;
-                visibility: hidden;
-                border-radius: 12px;
-           
-                li{
-                    
-                    a{
-                       
-                        color: map.get($theme-colors ,"head_bt_bg_text"  );
-                        font-weight: 200;
-                        padding: 3px 3px;
-                    }
-                    :hover {
-                        color: map.get($theme-colors , "head_bt_bg_sub_text" );
-                    }
-                }
-                }
-        }
-    
     }
-    
+    .row-menu {
+        display: flex; 
+        align-items: center; 
+        
+    }
+    .col-3-html{
+        font-size: 22px;
+        margin-left: 86px;
+        .custom-button {
+            height: 40px;
+            background-color: #f9821d; 
+            color: #ffffff; 
+            border: none; 
+        }
+        
+        .custom-button:hover {
+            background-color: darkorange; 
+        }
+    }

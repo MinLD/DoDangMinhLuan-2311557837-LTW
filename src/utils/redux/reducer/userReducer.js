@@ -1,5 +1,6 @@
-import { FETCH_USER_LOGIN_SUCCESS } from '../action/useAction';
+import { FETCH_USER_LOGIN_SUCCESS,FETCH_USER_LOGOUT } from '../action/useAction';
 import { INCREMENT, DECREMENT } from '../action/counterAction';
+
 const INITIAL_STATE = {
     account: {
         access_token: '',
@@ -9,7 +10,9 @@ const INITIAL_STATE = {
         role:  ''
     },
     isAuthenticated: false   
+    
 };
+
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case FETCH_USER_LOGIN_SUCCESS :
@@ -25,9 +28,17 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 isAuthenticated: true  
             };
 
+            case FETCH_USER_LOGOUT: // Thêm action cho đăng xuất
+            return {
+                ...state,
+                account: INITIAL_STATE.account, // Đặt lại thông tin tài khoản
+                isAuthenticated: false // Đặt isAuthenticated thành false khi đăng xuất
+            };
+
+
         case DECREMENT:
             return {
-                ...state, count: state.count - 1,
+                ...state, count: state.account - 1,
             };
         default: return state;
     }

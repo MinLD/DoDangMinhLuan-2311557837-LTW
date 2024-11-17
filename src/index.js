@@ -4,15 +4,18 @@
     import RouterCustom from './router';
     import './style/style.scss';
     import { Provider } from 'react-redux';
-    import store from '../src/utils/redux/store';
+    import {store, persistor} from '../src/utils/redux/store';
     import 'nprogress/nprogress.css';
+    import { PersistGate } from 'redux-persist/integration/react';
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
-        <Provider store={store}>
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}> 
     <BrowserRouter>
     <RouterCustom/>
     </BrowserRouter>
-        </Provider>
+    </PersistGate>
+    </Provider>
     );
 
 

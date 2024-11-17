@@ -8,11 +8,14 @@
         import { Await } from "react-router-dom";
         import { toast } from "react-toastify";
         import { Link, useNavigate } from "react-router-dom";
-        import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
+        import { FaEye, FaEyeSlash, FaSpinner, FaUserGraduate } from "react-icons/fa";
         import { useDispatch, useSelector } from "react-redux";
-        import { NavDropdown } from "react-bootstrap";
+        import { Button, NavDropdown } from "react-bootstrap";
         import { doLogin } from "utils/redux/action/useAction";
         import { IoIosNotificationsOutline } from "react-icons/io";
+        import LogoSWB from '../../assets/logoswb (3).png' ;
+        import { userLogout } from "utils/redux/action/useAction";
+import nProgress from "nprogress";
         const Header = (props) => {
             // loading login
             const [isloading, setLoading]=useState(false);
@@ -20,8 +23,20 @@
             const handlenati= ()=>{
                 setshownati(!shownati)
             }
+            const dispatch1 = useDispatch();
             const  isAuthenticated = useSelector(state=>state.user.isAuthenticated)
             const  account = useSelector(state=>state.user.account)
+            const handleLogout = () => {
+                if (window.confirm("Bạn có chắc muốn đăng xuất?")) {
+             
+                    dispatch(userLogout()); // Call logout action if confirmed
+                    nProgress.start();
+                    setTimeout(() => {
+                        nProgress.done(); // Kết thúc thanh tiến trình
+                        navigate('/');
+                    }, 2000);       
+                }
+            };
             const navigate=useNavigate();
             const [menus] = useState([
             {
@@ -74,10 +89,11 @@
             setUsername("");
             setPasswordrl("");
         }
-
+        
             const [isLoginBoxVisible, setLoginBoxVisible] = useState(false);
             const loginBoxRef = useRef(null); // Tham chiếu đến khung đăng nhập
             const regisBoxRef = useRef(null);
+            const natiBoxRef = useRef(null);
             const toggleLoginBox = () => {
                 setLoginBoxVisible(!isLoginBoxVisible);
             };
@@ -87,13 +103,19 @@
         }
             // Hàm để đóng khung đăng nhập khi nhấn ra ngoài
             const handleClickOutside = (event) => {
+               
                 if (loginBoxRef.current && !loginBoxRef.current.contains(event.target)) {
                     handleCloseLogin();
                     setLoginBoxVisible(false);
                 }
                 else if (regisBoxRef.current && !regisBoxRef.current.contains(event.target)) {
+                  
                     handleCloseLogin();
                     SetRegisBoxVisible(false);
+                }
+                else if (natiBoxRef.current && ! natiBoxRef.current.contains(event.target)){
+                    console.log('nati')
+                    setshownati(false);
                 }
             };
 
@@ -105,15 +127,18 @@
                     document.removeEventListener('mousedown', handleClickOutside);
                 };
             }, []);
-
+           
         const handleLogin =async()=>{
             //validate
+           
             setLoading(true);
             //submit apis
             let data = await postLoin(email,password)
+            console.log(data)
             if(data && data.EC ===0){
+               
                 dispatch(doLogin(data));
-                toast.success('Đăng nhập thành công');
+                // toast.success('Đăng nhập thành công');
                 setLoading(false);
                 navigate('/')
                 setLoginBoxVisible(false);
@@ -166,6 +191,7 @@
                 console.log(data)
             }
         }
+       
             return (
                 <>
                 <div className="container-big set_zindex" >
@@ -174,12 +200,18 @@
                     <div className="row-html">
                         <div className="col-6-html header_top_left">
                             <ul>
-                                <li>
+                                {/* <li>
                                     
                                 <CgMail size={20}/>swb@gmail.com
-                                </li>
+                                </li> */}
                                 <li>
-                                <MdOutlinePhoneInTalk size={20}/>  08888123213
+                                    <span>
+                                    <MdOutlinePhoneInTalk size={25}/>
+                                    </span>
+                                    <span>
+                                    08888123213
+                                    </span>
+                           
                                 </li>
                             </ul>
                         </div>
@@ -372,7 +404,7 @@
                                                 {shownati &&
                                                 
                                                 <>
-                                                <div className="noti_item1">
+                                                <div className="noti_item1" ref={natiBoxRef}>
                                                     Thông báo
                                                     <Link className="noti_item1_textLink">
                                                         xem tất cả
@@ -393,10 +425,10 @@
                                 </span>
                                 <span >
                                             <span className="login">
-                                            <NavDropdown title="Tên người dùng" id="basic-nav-dropdown">
+                                            <NavDropdown title={<span><b  style={{ margin : '0px 10px'}}>{account.username}</b><FaUserGraduate size={25}/></span>} id="basic-nav-dropdown">
                         <NavDropdown.Item >Thông tin tài khoản</NavDropdown.Item>
                         <NavDropdown.Item> Thay đổi mật khẩu</NavDropdown.Item>
-                        <NavDropdown.Item> Đăng xuất</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLogout}> Đăng xuất</NavDropdown.Item>
                    </NavDropdown> 
                                             </span>
                                         
@@ -436,10 +468,10 @@
                 </div>
             </div>
         <div className="container_banner head_bt_bg set_zindex2">
-        <div className="row-html"> 
+        <div className="row-html row-menu"> 
                 <div  className="col-xl-3-html"  >
                     <div className="header_logo">
-                        <img src="https://www.saokim.com.vn/blog/wp-content/uploads/2022/04/logo-moi-cua-starbucks.jpg.webp"/>
+                        <img src={LogoSWB}/>
                     </div>
                 </div>
                 <div  className="col-xl-9-html "  >
@@ -454,7 +486,17 @@
                 
                         </ul>
                     </nav>
+                  
                 </div>
+                {isAuthenticated === false ?
+                ''
+                :
+                <div className="col-3-html">
+                <Link  >
+                <Button className="custom-button">Khóa học của tôi</Button>
+                </Link>     
+                    </div>
+        }
                 </div>
             </div>
         </div>
