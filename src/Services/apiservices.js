@@ -7,7 +7,7 @@ import axios from "../utils/axiosCustomize";
             data.append('username',  username);
             data.append('role',  role);
             data.append('userImage',  image);
-            return axios.post('api/v1/participant', data)
+            return axios.post('users/signup', data)
         }
         const getAllUsers=()=>{
         return axios.get('api/v1/participant/all')
@@ -34,17 +34,16 @@ import axios from "../utils/axiosCustomize";
         const getUserWithPaginate=(page,limit)=>{
                 return axios.get(`api/v1/participant?page=${page}&limit=${limit}`);
                 }
-        const postLoin=(userEmail,userPassword)=> {
-            return axios.post(`api/v1/login`, 
+        const postLoin=(useruser,userPassword)=> {
+            return axios.post(`auth/token`, 
                 {
-                email: userEmail, 
+                username: useruser, 
                 password: userPassword,
                 delay : 1000
-
                 });
         } 
-        const postRegister=(userEmail,userPassword,userName)=> {
-            return axios.post(`api/v1/register`, 
-                {email: userEmail, password: userPassword,username : userName});
+        const postRegister=(userEmail,userPassword,userName,userFirtName,userLastName, userDob)=> {
+            return axios.post(`/users/signup`, 
+                {email: userEmail, password: userPassword,username : userName, firstName : userFirtName, lastName: userLastName, dob: userDob});
         } 
         export {postCreateUser,getAllUsers,putUpdateUser,putViewUser,deleteUsers,getUserWithPaginate, postLoin, postRegister};

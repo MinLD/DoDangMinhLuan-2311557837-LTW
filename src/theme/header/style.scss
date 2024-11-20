@@ -30,11 +30,20 @@ input[type="button"]{
         cursor: no-drop;
     }
 }
+/* Đặt màu trắng cho biểu tượng ngày tháng */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+  
+  
 
 .input-login[type="email"],
 .input-login[id="password"],
-.input-login[type="username"],
-.input-login[id="passwordrl"]
+.input-login[id="username"],
+.input-login[id="passwordrl"],
+.input-login[id="firtname"],
+.input-login[id="lastname"],
+.input-login[id="dob"]
  {
     width: 100%;
     padding: 10px;
@@ -100,7 +109,7 @@ span{
     background-color: rgba(0, 0, 0, 0.5); 
     .modal-content {
         background-color: #131212;
-        margin: 8% auto;
+        margin: 2% auto;
         padding: 20px;
         border: 1px solid #ccc;
         width: 500px; 

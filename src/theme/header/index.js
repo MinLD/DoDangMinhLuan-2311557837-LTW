@@ -15,7 +15,7 @@
         import { IoIosNotificationsOutline } from "react-icons/io";
         import LogoSWB from '../../assets/logoswb (3).png' ;
         import { userLogout } from "utils/redux/action/useAction";
-import nProgress from "nprogress";
+        import nProgress, { set } from "nprogress";
         const Header = (props) => {
             // loading login
             const [isloading, setLoading]=useState(false);
@@ -26,6 +26,7 @@ import nProgress from "nprogress";
             const dispatch1 = useDispatch();
             const  isAuthenticated = useSelector(state=>state.user.isAuthenticated)
             const  account = useSelector(state=>state.user.account)
+            console.log(account.username);
             const handleLogout = () => {
                 if (window.confirm("Bạn có chắc muốn đăng xuất?")) {
              
@@ -64,11 +65,11 @@ import nProgress from "nprogress";
                 },
           
          
-                {
-                    name: "Admin",
-                    path: ROUTERS.USER.admin,
+                // {
+                //     name: "Admin",
+                //     path: ROUTERS.USER.admin,
                 
-                },
+                // },
            
             
             
@@ -80,6 +81,9 @@ import nProgress from "nprogress";
         const [passwordrl, setPasswordrl] = useState("");
         const [rememberMe, setRememberMe] = useState(false);
         const [username,setUsername] = useState("");
+        const [firtname, setFirtname]=useState("");
+        const [lastname, setLastname] = useState("");
+        const [dob, setDob]=useState("");
         const [isshowpassword,setShowpassword]= useState(false);
         const [isconfirmshowpassword,setConfirmShowpassword]= useState(false);
         const dispatch=useDispatch();
@@ -88,6 +92,9 @@ import nProgress from "nprogress";
             setPassword("");
             setUsername("");
             setPasswordrl("");
+            setFirtname("");
+            setLastname("");
+            setDob("");
         }
         
             const [isLoginBoxVisible, setLoginBoxVisible] = useState(false);
@@ -114,7 +121,7 @@ import nProgress from "nprogress";
                     SetRegisBoxVisible(false);
                 }
                 else if (natiBoxRef.current && ! natiBoxRef.current.contains(event.target)){
-                    console.log('nati')
+               
                     setshownati(false);
                 }
             };
@@ -130,23 +137,35 @@ import nProgress from "nprogress";
            
         const handleLogin =async()=>{
             //validate
-           
+            if (!username) { 
+                toast.error('Vui lòng nhập tên đăng nhập'); 
+                return; } 
+            if (!password) { 
+                toast.error('Vui lòng nhập mật khẩu'); 
+                return; 
+            }
             setLoading(true);
             //submit apis
-            let data = await postLoin(email,password)
-            console.log(data)
-            if(data && data.EC ===0){
-               
+            const data = await postLoin(username,password);
+          
+            if(data && data.code===1000){
+                
                 dispatch(doLogin(data));
                 // toast.success('Đăng nhập thành công');
                 setLoading(false);
                 navigate('/')
                 setLoginBoxVisible(false);
 
-            }else{
-                toast.error('Đăng nhập thất bại, vui lòng nhập lại!')
+            }
+            else if(data.code === 406){
+                toast.error('Tên đăng nhập không tồn tại')
                 setLoading(false);
             }
+            else if(data.code === 409){
+                toast.error('Mật khẩu không đúng')
+                setLoading(false);
+            }
+           
         }
         const validateEmail = (email) => {
             return String(email)
@@ -155,11 +174,25 @@ import nProgress from "nprogress";
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
         };
+        function validatePassword(password) {
+
+            return /[A-Z]/       .test(password) &&
+                   /[a-z]/       .test(password) &&
+                   /[0-9]/       .test(password) &&
+                   /[^A-Za-z0-9]/.test(password) &&
+                   password.length > 8;
+        
+        }
         const handleRegister =async()=>{
             //validate
             const isValidEmail =validateEmail(email);
-            if(!isValidEmail){
-            toast.error('Vui lòng nhập Email')
+            const isValidPassword = validatePassword(password);
+            if(!email){
+                toast.error('Vui lòng nhập Email');
+                return;
+            }
+            if(email != null && !isValidEmail){
+             toast.error('Email không hợp lệ. Vui lòng nhập lại email đúng định dạng');
             return;
             }
             else if(!username){
@@ -167,7 +200,12 @@ import nProgress from "nprogress";
             return;
             }
             else if(!password){
-                toast.error('Vui lòng nhập mật khẩu')
+                toast.error(`Vui lòng nhập mật khẩu`);
+               return ;
+           }
+            else if(password!=null && !isValidPassword){
+                 toast.error(`Mật khẩu phải từ
+                    [*A-z, *a-z, *0-9, độ dài tối thiểu 8 ký tự]`);
                 return ;
             }
             else if(!passwordrl){
@@ -178,19 +216,41 @@ import nProgress from "nprogress";
                 toast.error('Mật khẩu không khớp')
                 return;
             }
+            else if (!firtname){
+                toast.error('Vui lòng nhập tên')
+                return;
+            }
+            else if (!lastname){
+                toast.error('Vui lòng nhập tên đệm')
+                return;
+            }
+            else if (!dob){
+                toast.error('Vui lòng nhập ngày sinh')
+                return;
+            }
+          
             //submit apis
-            let data = await postRegister(email,password,username)
-            if(data && data.EC ===0){
+            try{
+            const data = await postRegister(email,password,username,firtname,lastname,dob)
+            if(data && data.code ===1000){
                 console.log(data)
                 toast.success('Đăng ký tài khoản thành công');
                 setPassword("");
                 toggleRegisBox (false)
                 setLoginBoxVisible(true);
             }else{
-                toast.error(data.EM)
-                console.log(data)
+                toast.log(data.message);
             }
+            if(data.code ===406){
+                
+            }
+        }catch(error){
+            toast.error('Có lỗi xảy ra. Vui lòng thử lại!'); 
+            
+         }
         }
+          
+        
        
             return (
                 <>
@@ -250,12 +310,12 @@ import nProgress from "nprogress";
 
                                     <input
                                     className="input-login"
-                                        placeholder="Email hoặc số điện thoại đăng nhập"
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={(event) => setEmail(event.target.value)}
+                                        placeholder="Tên đăng nhập"
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        value={username}
+                                        onChange={(event) => setUsername(event.target.value)}
                                         
                                     />
 
@@ -327,14 +387,15 @@ import nProgress from "nprogress";
                                     />
                                     <input
                                     className="input-login"
-                                        placeholder="Tên người dùng"
-                                        type="username"
+                                        placeholder="Tên đăng nhập"
+                                        type="text"
                                         id="username"
                                         name="username"
                                         value={username}
                                         onChange={(event) => setUsername(event.target.value)}
                                         
                                     />
+
                                     <div className="pass-group">
                                     <input
                                     className="input-login"
@@ -365,6 +426,8 @@ import nProgress from "nprogress";
                                         value={passwordrl}
                                         onChange={(event) => setPasswordrl(event.target.value)}
                                     />
+                                    
+
                                             {isconfirmshowpassword ?
                                     <span className="eye-password" onClick={()=>setConfirmShowpassword(false)}>
                                         <FaEye />
@@ -374,7 +437,37 @@ import nProgress from "nprogress";
                                 <FaEyeSlash />
                                 </span>
                                     }
+                                        
                                     </div>
+                                    <input
+                                    className="input-login"
+                                    placeholder="FirtName"
+                                        type="text"
+                                        id="firtname"
+                                        name="firtname"
+                                        value={firtname}
+                                        onChange={(event) => setFirtname(event.target.value)}
+                                    />
+                                           <input
+                                    className="input-login"
+                                    placeholder="LastName"
+                                        type="text"
+                                        id="lastname"
+                                        name="lastname"
+                                        value={lastname}
+                                        onChange={(event) => setLastname(event.target.value)}
+                                    />
+                                    <div className="date-group">
+                                    <input
+                                        className="input-login"
+                                        type="date"
+                                        id="dob"
+                                        name="dob"
+                                        value={dob}
+                                        onChange={(event) => setDob(event.target.value)}
+                                    />
+                                    </div>
+
                                     
                                 <br /><br />
                                     <input type="button" value="Đăng ký " onClick={()=> handleRegister()} />
@@ -425,7 +518,7 @@ import nProgress from "nprogress";
                                 </span>
                                 <span >
                                             <span className="login">
-                                            <NavDropdown title={<span><b  style={{ margin : '0px 10px'}}>{account.username}</b><FaUserGraduate size={25}/></span>} id="basic-nav-dropdown">
+                                            <NavDropdown title={<span><b  style={{ margin : '0px 10px'}}>{account.firtname}</b><FaUserGraduate size={25}/></span>} id="basic-nav-dropdown">
                         <NavDropdown.Item >Thông tin tài khoản</NavDropdown.Item>
                         <NavDropdown.Item> Thay đổi mật khẩu</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLogout}> Đăng xuất</NavDropdown.Item>

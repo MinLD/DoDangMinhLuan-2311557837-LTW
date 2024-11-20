@@ -1,7 +1,7 @@
 import axios from "axios";
 import nProgress from "nprogress";
     const instance = axios.create({
-        baseURL: 'http://localhost:8081/',
+        baseURL: 'http://localhost:8080/',
       });
       // Add a request interceptor
 instance.interceptors.request.use(function (config) {

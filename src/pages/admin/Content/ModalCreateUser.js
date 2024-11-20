@@ -23,6 +23,7 @@ const ModalCeateUser = (props)=> {
     const [username,setUsername]=useState("");
     const [image,setImages]=useState("");
     const [role,setRole]=useState("USER");
+    
     const [PreviewImages,setPreviewImages] =useState("");
 
     const handleUploadImages =(event)=>{
