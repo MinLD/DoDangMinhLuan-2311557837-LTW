@@ -1,0 +1,80 @@
+.toeclr-conta { 
+    position: relative; 
+    width: 100%; 
+
+  
+} 
+.toeclr-banner { 
+    position: relative; 
+} 
+.toeclr-banner img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+} 
+.toeclr-banner-item {
+     position: absolute; 
+     top: 65%;
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      color: rgb(255, 255, 255);
+      font-weight: 900; 
+      text-align: center;
+   
+     } 
+.toeclr-banner-item h6, .toeclr-banner-item h6 { 
+    margin: 10px 0; } 
+.toeclr-banner-item input { 
+        color: white;
+        background-color: #181a1b;
+        width: 391px;
+        margin: 0 10px;
+        padding: 5px;
+        border-radius: 7px;
+        border: none;
+    }
+/* CSS cho phần hướng dẫn */ 
+.instructions {
+     margin: 20px auto; 
+    width: 100%;
+     padding: 20px; 
+     border-radius: 10px; 
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+     border: 1px solid #3a3f41;
+     color: #c8c3bc
+    } 
+    .instructions h2 { 
+        font-size: 24px; 
+        margin-bottom: 15px;
+     } .instructions p { 
+        font-size: 16px;
+         margin-bottom: 15px; 
+        } .instructions ul { 
+            list-style-type: none;
+             padding: 0; 
+            } 
+            .instructions ul li { 
+                img{
+                    width: 100%;
+                }
+                font-size: 16px;
+                 margin-bottom: 10px; 
+                } 
+                instructions ul li strong 
+                {
+                     font-weight: bold;
+                }
+                .advertisement{
+                    display: block;
+                    align-items: center;
+                    text-align: center;
+                  
+                    img{
+                    width: 70%; ;
+                    }
+                   
+                }
+                .advertisement-footer{
+                    padding: 60px 0px 0px 0px;
+                    left: 0;
+                }
