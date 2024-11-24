@@ -16,6 +16,7 @@
         import LogoSWB from '../../assets/logoswb (3).png' ;
         import { userLogout } from "utils/redux/action/useAction";
         import nProgress, { set } from "nprogress";
+import localStorage from "redux-persist/es/storage";
         const Header = (props) => {
             
             // loading login
@@ -30,11 +31,11 @@
             console.log(account.access_token);
             const handleLogout = () => {
                 if (window.confirm("Bạn có chắc muốn đăng xuất?")) {
-             
                     dispatch(userLogout()); // Call logout action if confirmed
                     nProgress.start();
                     setTimeout(() => {
                         nProgress.done(); // Kết thúc thanh tiến trình
+                        localStorage.removeItem("token");
                         navigate('/');
                     }, 2000);       
                 }
@@ -148,28 +149,35 @@
             setLoading(true);
             //submit apis
             const data = await postLoin(username,password);
-          
-            if(data && data.code===1000){
+            console.log(data)
+            if(data && data.code===1000 && data.result.token){
                 console.log(data.result.token)
-                // alert("Tao là Token nè: "+data.result.token)
+                localStorage.setItem("token", data.result.token)
                 dispatch(doLogin(data));
                 // toast.success('Đăng nhập thành công');
                 setLoading(false);
-                navigate('/')
+                navigate('/');
                 setLoginBoxVisible(false);
+                setTimeout(() => {
+                    localStorage.removeItem("token");
+                    checkAuth();
+                 }, 120000);
 
-            }
-            else if(data.code === 406){
-                toast.error('Tên đăng nhập không tồn tại')
-                setLoading(false);
-            }
-            else if(data.code === 409){
-                toast.error('Mật khẩu không đúng')
+            }else{
+                if(data && data.status === 400){
+                    toast.error(data.data.message)
+                }
                 setLoading(false);
             }
            
         }
-    
+    const checkAuth=()=>{  
+            dispatch(userLogout()); 
+            nProgress.start();
+            toast.error('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');  
+            nProgress.done();
+            setLoginBoxVisible(true);
+    }
     
         const validateEmail = (email) => {
             return String(email)
@@ -252,7 +260,7 @@
         
     }
           
-        
+  
        
             return (
                 <>
