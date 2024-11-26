@@ -5,30 +5,35 @@
         import { MdOutlinePhoneInTalk } from "react-icons/md";
         import { ROUTERS } from "utils/router";
         import { postLoin, postRegister } from "Services/apiservices";
-        import { Await } from "react-router-dom";
+        import { Await, json } from "react-router-dom";
         import { toast } from "react-toastify";
         import { Link, useNavigate } from "react-router-dom";
         import { FaEye, FaEyeSlash, FaSpinner, FaUserGraduate } from "react-icons/fa";
         import { useDispatch, useSelector } from "react-redux";
         import { Button, NavDropdown } from "react-bootstrap";
-        import { doLogin } from "utils/redux/action/useAction";
+        import { doLogin, fetchUserInfo } from "utils/redux/action/useAction";
         import { IoIosNotificationsOutline } from "react-icons/io";
         import LogoSWB from '../../assets/logoswb (3).png' ;
         import { userLogout } from "utils/redux/action/useAction";
         import nProgress, { set } from "nprogress";
-import localStorage from "redux-persist/es/storage";
+        import localStorage from "redux-persist/es/storage";
+        import axios from "axios";
+import { get } from "lodash";
+
+
+
         const Header = (props) => {
-            
+    
             // loading login
             const [isloading, setLoading]=useState(false);
             const [shownati,setshownati]=useState(false);
             const handlenati= ()=>{
                 setshownati(!shownati)
             }
-            const dispatch1 = useDispatch();
-            const  isAuthenticated = useSelector(state=>state.user.isAuthenticated)
+            const dispatch=useDispatch();
+            const  isAuthenticated = useSelector(state=>state.login.isAuthenticated)
             const  account = useSelector(state=>state.user.account)
-            console.log(account.access_token);
+           
             const handleLogout = () => {
                 if (window.confirm("Bạn có chắc muốn đăng xuất?")) {
                     dispatch(userLogout()); // Call logout action if confirmed
@@ -36,8 +41,9 @@ import localStorage from "redux-persist/es/storage";
                     setTimeout(() => {
                         nProgress.done(); // Kết thúc thanh tiến trình
                         localStorage.removeItem("token");
-                        navigate('/');
-                    }, 2000);       
+                        localStorage.removeItem("persist:root")
+                        navigate('/')
+                    }, 1000);       
                 }
             };
             const navigate=useNavigate();
@@ -77,7 +83,7 @@ import localStorage from "redux-persist/es/storage";
             
             
         ])
-
+    
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [passwordrl, setPasswordrl] = useState("");
@@ -88,7 +94,7 @@ import localStorage from "redux-persist/es/storage";
         const [dob, setDob]=useState("");
         const [isshowpassword,setShowpassword]= useState(false);
         const [isconfirmshowpassword,setConfirmShowpassword]= useState(false);
-        const dispatch=useDispatch();
+      
         const handleCloseLogin=()=>{
             setEmail("");
             setPassword("");
@@ -97,8 +103,7 @@ import localStorage from "redux-persist/es/storage";
             setFirtname("");
             setLastname("");
             setDob("");
-        }
-        
+        }       
             const [isLoginBoxVisible, setLoginBoxVisible] = useState(false);
             const loginBoxRef = useRef(null); // Tham chiếu đến khung đăng nhập
             const regisBoxRef = useRef(null);
@@ -137,40 +142,53 @@ import localStorage from "redux-persist/es/storage";
                 };
             }, []);
            
-        const handleLogin =async()=>{
-            //validate
-            if (!username) { 
-                toast.error('Vui lòng nhập tên đăng nhập'); 
-                return; } 
-            if (!password) { 
-                toast.error('Vui lòng nhập mật khẩu'); 
-                return; 
-            }
-            setLoading(true);
-            //submit apis
-            const data = await postLoin(username,password);
-            console.log(data)
-            if(data && data.code===1000 && data.result.token){
-                console.log(data.result.token)
-                localStorage.setItem("token", data.result.token)
-                dispatch(doLogin(data));
-                // toast.success('Đăng nhập thành công');
-                setLoading(false);
-                navigate('/');
-                setLoginBoxVisible(false);
-                setTimeout(() => {
-                    localStorage.removeItem("token");
-                    checkAuth();
-                 }, 120000);
-
-            }else{
-                if(data && data.status === 400){
-                    toast.error(data.data.message)
+            const handleLogin =async()=>{
+                //validate
+                if (!username) { 
+                    toast.error('Vui lòng nhập tên đăng nhập'); 
+                    return; } 
+                if (!password) { 
+                    toast.error('Vui lòng nhập mật khẩu'); 
+                    return; 
                 }
-                setLoading(false);
+                setLoading(true);
+                //submit apis
+                const data = await postLoin(username,password);
+                
+                if(data && data.code===1000 && data.result.token){  
+                console.log('data lấy đc sau khi login', data)
+                var token2 = data.result.token;
+                localStorage.setItem('token', JSON.stringify(token2));
+                await getUserInfo(token2,dispatch);
+                    dispatch(doLogin(data));
+                    setLoading(false);
+                    navigate('/');                
+                    setLoginBoxVisible(false);
+                }else{
+                    if(data && data.status === 400){
+                        toast.error(data.data.message)
+                    }
+                    setLoading(false);
+                }
             }
-           
-        }
+            //getdata
+            const getUserInfo = async (token,dispatch) => {
+                try {
+                const response = await axios.get('http://localhost:8080/users/myInfo', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.status === 200) {
+                    const data = response.data; 
+                    console.log('user info:', data);
+                    dispatch(fetchUserInfo(data));
+                    console.log('account: ',account)
+                }
+                } catch (error) {
+                console.error('Error fetching user info:', error);
+                }
+                }
     const checkAuth=()=>{  
             dispatch(userLogout()); 
             nProgress.start();
@@ -195,74 +213,80 @@ import localStorage from "redux-persist/es/storage";
                    password.length > 8;
         
         }
-        const handleRegister =async()=>{
-            //validate
-            const isValidEmail =validateEmail(email);
+        const handleRegister = async () => {
+            // Validate
+            const isValidEmail = validateEmail(email);
             const isValidPassword = validatePassword(password);
-            if (!email) 
-                { 
-                    toast.error('Vui lòng nhập Email'); 
-            } else if (email && !isValidEmail) 
-                    { 
-                        toast.error('Email không hợp lệ. Vui lòng nhập lại email đúng định dạng'); 
-                    } 
-            if (!username) 
-                        { 
-                            toast.error('Vui lòng nhập tên đăng nhập'); 
-                        } 
-            if (!password)
-                             { 
-                                toast.error('Vui lòng nhập mật khẩu'); 
-                            } else if (password && !isValidPassword) 
-                                { 
-                                    toast.error(`[Mật khẩu phải có từ 8-15 ký tự, bao gồm chữ, số và kí tự đặc biệt.]`); 
-                                } 
-            if (!passwordrl) 
-                                    { 
-                                        toast.error('Vui lòng nhập lại mật khẩu'); 
-                                    } else if (password && passwordrl && password !== passwordrl) 
-                                        {
-                                             toast.error('Mật khẩu không khớp'); 
-                                            } 
-            if (!firtname) 
-                                                { 
-                                                    toast.error('Vui lòng nhập tên'); 
-                                                } 
-            if (!lastname) 
-                                                    { 
-                                                        toast.error('Vui lòng nhập tên đệm');
-                                                     } 
-            if (!dob) 
-                                                        { toast.error('Vui lòng nhập ngày sinh');
-
-                                                         }
-            //submit apis
-                try{
-            const data = await postRegister(email,password,username,firtname,lastname,dob)
-            
-            console.log(data)
-            if(data && data.code ===1000){
-                console.log(data)
-                toast.success('Đăng ký tài khoản thành công');
-                setPassword("");
-                toggleRegisBox (false)
-                setLoginBoxVisible(true);
-            }
-            else{
-                toast.error(data.message);
-            }
-            
-        }catch(error){
-           toast.error('Tên đăng nhập đã tồn tại')
-         
-            
-         }
         
-    }
-          
-  
+            if (!email) { 
+                toast.error('Vui lòng nhập Email'); 
+                return;
+            } 
+            if (email && !isValidEmail) { 
+                toast.error('Email không hợp lệ. Vui lòng nhập lại email đúng định dạng'); 
+                return;
+            }
+            if (!username) { 
+                toast.error('Vui lòng nhập tên đăng nhập'); 
+                return;
+            } 
+            if (!password) { 
+                toast.error('Vui lòng nhập mật khẩu'); 
+                return;
+            } 
+            if (password && !isValidPassword) { 
+                toast.error('Mật khẩu phải có từ 8-15 ký tự, bao gồm chữ, số và kí tự đặc biệt.'); 
+                return;
+            }
+            if (!passwordrl) { 
+                toast.error('Vui lòng nhập lại mật khẩu'); 
+                return;
+            } 
+            if (password && passwordrl && password !== passwordrl) {
+                toast.error('Mật khẩu không khớp'); 
+                return;
+            } 
+            if (!firtname) { 
+                toast.error('Vui lòng nhập tên'); 
+                return;
+            } 
+            if (!lastname) { 
+                toast.error('Vui lòng nhập tên đệm');
+                return;
+            } 
+            if (!dob) { 
+                toast.error('Vui lòng nhập ngày sinh');
+                return;
+            }
+        
+            // Submit API
+        
+                var data = await postRegister(email, password, username, firtname, lastname, dob);
+                console.log(data.data);           
+                if (data && data.code === 1000) {
+                    toast.success('Đăng ký tài khoản thành công');
+                    setPassword("");
+                    toggleRegisBox(false);
+                    setLoginBoxVisible(true);
+                }
+                else if(data && data.data.code ===  412) {
+                    toast.error('Tên đăng nhập đã tồn tại');
+                }
+                else{
+                    toast.error(data.data.message)
+                }
        
-            return (
+        };
+        
+   
+
+        
+
+ 
+
+
+      
+       return (
                 <>
                 <div className="container-big set_zindex" >
         <div className="header_top">
@@ -279,7 +303,7 @@ import localStorage from "redux-persist/es/storage";
                                     <MdOutlinePhoneInTalk size={25}/>
                                     </span>
                                     <span>
-                                    0888xxxxx
+                                    0888xxxx 
                                     </span>
                            
                                 </li>
@@ -528,8 +552,11 @@ import localStorage from "redux-persist/es/storage";
                                 </span>
                                 <span >
                                             <span className="login">
-                                            <NavDropdown title={<span><b  style={{ margin : '0px 10px'}}>{account   .token}</b><FaUserGraduate size={25}/></span>} id="basic-nav-dropdown">
-                        <NavDropdown.Item >Thông tin tài khoản</NavDropdown.Item>
+                                            <NavDropdown title={<span><b  style={{ margin : '0px 10px'}}>{account.username}</b><FaUserGraduate size={25}/></span>} id="basic-nav-dropdown">                                      
+                                         <a href={ROUTERS.USER.InfoUser } style={{ textDecoration: 'none', color: 'inherit' }}>
+                Thông tin người dùng
+            </a>
+            <NavDropdown.Item> </NavDropdown.Item>
                         <NavDropdown.Item> Thay đổi mật khẩu</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLogout}> Đăng xuất</NavDropdown.Item>
                    </NavDropdown> 
@@ -595,16 +622,17 @@ import localStorage from "redux-persist/es/storage";
                 ''
                 :
                 <div className="col-3-html">
-                <Link  >
-                <Button className="custom-button">Khóa học của tôi</Button>
-                </Link>     
+               
+                <Button className="custom-button" >Khóa học của tôi</Button>
+              
                     </div>
         }
                 </div>
             </div>
         </div>
+         
                 </>
         
             )
         }
-        export default memo(Header);
+        export  default memo(Header);

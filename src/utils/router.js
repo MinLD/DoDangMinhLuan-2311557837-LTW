@@ -1,3 +1,5 @@
+
+
 export const ROUTERS ={
     USER : {
         HOME : "/",
@@ -8,6 +10,7 @@ export const ROUTERS ={
         TestOnline: "/thi-thu-Online",
         Review: "/on-luyen",
         admin: "/admins",
+        InfoUser: "/account"
      
     },
 };

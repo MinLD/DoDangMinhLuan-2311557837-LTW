@@ -14,8 +14,11 @@
     import ManageUser from "pages/admin/Content/ManageUser";
     import { ToastContainer } from 'react-toastify';
     import 'react-toastify/dist/ReactToastify.css';
+    import MyInfoUser from "pages/user/MyInfoUser/MyInfoUser";
+
 
     const renderUserRouter = () => {
+ 
         return (
             <>
                 <Masterlayout>
@@ -23,6 +26,8 @@
                         <Route path={ROUTERS.USER.HOME} element={<HomePage />} />
                         <Route path={ROUTERS.USER.NEWS} element={<AboutNews />} />
                         <Route path={ROUTERS.USER.INTRODUCE} element={<AboutIntroduce />} />
+                       
+                        <Route path={ROUTERS.USER.InfoUser} element={<MyInfoUser />} /> 
                         <Route path={ROUTERS.USER.Review} element={<Review />}>
                             <Route index element={<TestBank />} />
                             <Route path="testbank" element={<TestBank />} />

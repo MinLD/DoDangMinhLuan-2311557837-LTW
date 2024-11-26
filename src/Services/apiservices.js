@@ -10,7 +10,7 @@ import axios from "../utils/axiosCustomize";
             return axios.post('users/signup', data)
         }
         const getAllUsers=()=>{
-        return axios.get('api/v1/participant/all')
+        return axios.get('/users')
         }
         const putUpdateUser=(id,username,role,image)=>{
             const data = new FormData();
